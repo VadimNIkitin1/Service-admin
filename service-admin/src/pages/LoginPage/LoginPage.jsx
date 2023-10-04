@@ -5,9 +5,6 @@ const LoginPage = () => {
   return (
     <div className={style.LoginPage}>
       <h1 className={style.title}>LOGO</h1>
-      <p className={style.text}>
-        Сервис по созданию персонализированного приложения в Телеграмм
-      </p>
       <LoginForm />
     </div>
   );

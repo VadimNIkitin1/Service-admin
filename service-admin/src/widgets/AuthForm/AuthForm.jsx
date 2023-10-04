@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-import style from "./LoginForm.module.scss";
+import style from "./AuthForm.module.scss";
 
 const LoginForm = () => {
   const {
@@ -26,8 +26,8 @@ const LoginForm = () => {
   };
 
   return (
-    <div className={style.LoginForm} onSubmit={handleSubmit(onSubmit)}>
-      <h1 className={style.title}>Авторизация</h1>
+    <div className={style.AuthForm} onSubmit={handleSubmit(onSubmit)}>
+      <h1 className={style.title}>Регистрация</h1>
       <form className={style.form}>
         <label className={style.label}>
           <p>Логин</p>
@@ -72,12 +72,29 @@ const LoginForm = () => {
             <p className={style.errorMsg}>{errors.password.message}</p>
           )}
         </label>
+        <label className={style.label}>
+          <p>Повторите пароль</p>
+          <input
+            className={style.input}
+            type="password"
+            {...register("repeatPassword", {
+              required: "Это поле обязательно для заполнения!",
+              validate: (value, allValues) => {
+                const { password } = allValues;
+                return password === value;
+              },
+            })}
+          />
+          {getValues("repeatPassword") !== getValues("password") && (
+            <p className={style.errorMsg}>Пароль не совпадает!</p>
+          )}
+        </label>
         <button className={style.submit}>
-          <input type="submit" value="Войти" disabled={!isValid} />
+          <input type="submit" value="Зарегестрироваться" disabled={!isValid} />
         </button>
       </form>
-      <Link className={style.link} to={"/auth"}>
-        У вас нет аккаунта?
+      <Link className={style.link} to={"/login"}>
+        У вас уже есть аккаунт?
       </Link>
     </div>
   );

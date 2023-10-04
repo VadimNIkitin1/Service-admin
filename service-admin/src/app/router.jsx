@@ -7,8 +7,9 @@ import HomePage from "../pages/HomePage/HomePage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AboutPage from "../pages/AboutPage/AboutPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-import LoginPage from "../pages/LoginPage/LoginPage";
+import AuthPage from "../pages/AuthPage/AuthPage";
 import Layout from "../widgets/Layout/Layout";
+import LoginPage from "../pages/LoginPage/LoginPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,11 @@ const router = createBrowserRouter(
           errorElement={<ErrorPage />}
         />
       </Route>
+      <Route
+        path={"auth"}
+        element={<AuthPage />}
+        errorElement={<ErrorPage />}
+      />
       <Route
         path={"login"}
         element={<LoginPage />}
