@@ -7,19 +7,3 @@
   height: 100vh;
   padding: 5px;
 }
-
-.sidebarItem {
-  padding: 15px;
-  display: flex;
-  column-gap: 10px;
-  margin: 10px;
-  font-size: 20px;
-}
-.sidebarItem:hover {
-  cursor: pointer;
-  background-color: $grey;
-  border-radius: 15px;
-}
-.sidebarItem:active {
-  background-color: $violet;
-}

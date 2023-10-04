@@ -1,0 +1,27 @@
+@import "../../app/variable.module.scss";
+
+.sidebarItem {
+  padding: 15px;
+  display: flex;
+  column-gap: 10px;
+  margin: 10px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.sidebarItem:hover {
+  cursor: pointer;
+  background-color: $grey;
+  border-radius: 15px;
+}
+.sidebarItemActive {
+  padding: 15px;
+  display: flex;
+  column-gap: 10px;
+  margin: 10px;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 15px;
+  background-color: $violet;
+  transition: all 0.3s ease-in-out;
+}
