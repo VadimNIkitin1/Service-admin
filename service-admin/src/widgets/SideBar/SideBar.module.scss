@@ -6,4 +6,9 @@
   width: 30vh;
   height: 100vh;
   padding: 5px;
+  border-right: 1px $grey solid;
+
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.8);
+  box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.8);
 }
