@@ -6,16 +6,18 @@ const CategoriesPage = () => {
   return (
     <div className={style.CategoriesPage}>
       <div className={style.widget}>
-        <p className={style.widgetItem}>Наименование</p>
-        <p className={style.widgetItem}>В наличии</p>
-      </div>
-      <div className={style.list}>
-        {categories.map((cat) => (
-          <div className={style.listItem} key={cat}>
-            <p>{cat}</p>
-            <Checkbox className={style.checkbox} />
-          </div>
-        ))}
+        <div className={style.widgetHeader}>
+          <p className={style.widgetItem}>Наименование</p>
+          <p className={style.widgetItem}>В наличии</p>
+        </div>
+        <div className={style.list}>
+          {categories.map((cat) => (
+            <div className={style.listItem} key={cat}>
+              <p>{cat}</p>
+              <Checkbox className={style.checkbox} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -5,8 +5,12 @@
 }
 
 .widget {
+  width: 600px;
+}
+
+.widgetHeader {
   display: flex;
-  column-gap: 250px;
+  column-gap: 300px;
   background-color: $black;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -36,5 +40,5 @@
 
 .checkbox {
   margin-left: auto;
-  margin-right: 30px;
+  margin-right: 90px;
 }
