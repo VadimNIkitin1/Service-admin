@@ -1,0 +1,22 @@
+@import "../../app/variable.module.scss";
+
+.tableRow {
+  display: flex;
+  background-color: $black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  padding: 10px;
+}
+
+.tableColumn:first-child {
+  width: 25%;
+}
+
+.tableColumn {
+  width: 15%;
+}
+
+.tableRow:nth-last-child(odd) {
+  background-color: $grey;
+}

@@ -1,24 +1,16 @@
 import Checkbox from "../../shared/Checkbox/Checkbox";
+import Table from "../../widgets/Table/Table";
 import style from "./CategoriesPage.module.scss";
+import { categories } from "../../assets/db";
 
 const CategoriesPage = () => {
-  const categories = ["Пицца", "Роллы", "Салаты", "Морепродукты", "BBQ"];
+  const tableHeader = [
+    { name: "Наименование", code: "name", type: "str" },
+    { name: "В наличии", code: "availability", type: "checkbox" },
+  ];
   return (
     <div className={style.CategoriesPage}>
-      <div className={style.widget}>
-        <div className={style.widgetHeader}>
-          <p className={style.widgetItem}>Наименование</p>
-          <p className={style.widgetItem}>В наличии</p>
-        </div>
-        <div className={style.list}>
-          {categories.map((cat) => (
-            <div className={style.listItem} key={cat}>
-              <p>{cat}</p>
-              <Checkbox className={style.checkbox} />
-            </div>
-          ))}
-        </div>
-      </div>
+      <Table data={categories} tableHeader={tableHeader} />
     </div>
   );
 };
