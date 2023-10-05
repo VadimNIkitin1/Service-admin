@@ -104,3 +104,19 @@ export const products = [
     popular: false,
   },
 ];
+
+export const tableHeaderCategories = [
+  { name: "Наименование", code: "name", type: "str" },
+  { name: "В наличии", code: "availability", type: "checkbox" },
+];
+
+export const tableHeaderMenu = [
+  { name: "Наименование", code: "name", type: "str" },
+  { name: "Категория", code: "categories", type: "str" },
+  { name: "Цена", code: "price", type: "str" },
+  { name: "В наличии", code: "availability", type: "checkbox" },
+  { name: "Самовывоз", code: "pickup", type: "checkbox" },
+  { name: "Доставка", code: "delivery", type: "checkbox" },
+  { name: "Зал", code: "hall", type: "checkbox" },
+  { name: "Популярное", code: "popular", type: "checkbox" },
+];
