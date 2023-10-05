@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { GiEnvelope } from "react-icons/gi";
 
 import style from "./AuthForm.module.scss";
 
@@ -27,7 +28,10 @@ const LoginForm = () => {
 
   return (
     <div className={style.AuthForm} onSubmit={handleSubmit(onSubmit)}>
-      <h1 className={style.title}>Регистрация</h1>
+      <h1 className={style.logoText}>
+        ENVELOPE <GiEnvelope className={style.logo} />
+      </h1>
+      <h2 className={style.title}>Регистрация</h2>
       <form className={style.form}>
         <label className={style.label}>
           <p>Логин</p>
