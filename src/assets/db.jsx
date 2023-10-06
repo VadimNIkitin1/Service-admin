@@ -104,3 +104,9 @@ export const products = [
     popular: false,
   },
 ];
+
+export const clients = [
+  { name: "VadimNikitin", userId: 1234 },
+  { name: "SwarowskyDmitry", userId: 1111 },
+  { name: "RyhlovNikita", userId: 4321 },
+];

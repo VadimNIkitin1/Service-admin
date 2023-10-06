@@ -34,6 +34,10 @@ const slice = createSlice({
       { name: "Зал", code: "hall", type: "checkbox" },
       { name: "Популярное", code: "popular", type: "checkbox" },
     ],
+    tableHeaderClients: [
+      { name: "User Name", code: "name", type: "str" },
+      { name: "User ID", code: "userId", type: "str" },
+    ],
   },
 });
 

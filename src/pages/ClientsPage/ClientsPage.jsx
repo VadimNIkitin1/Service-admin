@@ -1,7 +1,17 @@
+import { useSelector } from "react-redux";
+import { clients } from "../../assets/db";
+import Table from "../../widgets/Table/Table";
 import style from "./ClientsPage.module.scss";
 
 const ClientsPage = () => {
-  return <div>ClientsPage</div>;
+  const tableHeaderClients = useSelector(
+    (state) => state.menuElement.tableHeaderClients
+  );
+  return (
+    <div className={style.ClientsPage}>
+      <Table data={clients} tableHeader={tableHeaderClients} />
+    </div>
+  );
 };
 
 export default ClientsPage;
