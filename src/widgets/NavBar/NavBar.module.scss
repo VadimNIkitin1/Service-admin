@@ -9,11 +9,17 @@
   height: 80px;
   border-bottom: 2px solid #000;
   padding: 15px;
+  &.light {
+    background-color: #fff;
+  }
 }
 
 .logoText {
   color: white;
   font-size: 28px;
+  &.light {
+    color: #000;
+  }
 }
 
 .logo {

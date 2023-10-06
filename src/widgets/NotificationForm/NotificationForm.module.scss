@@ -25,6 +25,10 @@
   border-radius: 10px;
   border: 1px solid $orange;
   color: #fff;
+  &.light {
+    background-color: #fff;
+    color: #000;
+  }
 }
 
 .textNotification {
@@ -37,6 +41,10 @@
   min-height: 200px;
   resize: none;
   outline: none;
+  &.light {
+    background-color: #fff;
+    color: #000;
+  }
 }
 
 .imageNotification {

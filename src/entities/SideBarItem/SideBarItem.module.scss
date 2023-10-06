@@ -7,13 +7,20 @@
   margin: 10px;
   font-size: 20px;
   color: #fff;
+  &.light {
+    color: #000;
+  }
 }
 
 .sidebarItem:hover {
   cursor: pointer;
   background-color: $grey;
   border-radius: 15px;
+  &.light {
+    background-color: $lightgrey;
+  }
 }
+
 .sidebarItemActive {
   padding: 15px;
   display: flex;
@@ -24,4 +31,8 @@
   border-radius: 15px;
   background-color: $violet;
   transition: all 0.3s ease-in-out;
+
+  &.light {
+    background-color: $blue;
+  }
 }

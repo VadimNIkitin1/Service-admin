@@ -1,7 +1,11 @@
 import { useForm } from "react-hook-form";
 import style from "./NotificationForm.module.scss";
+import clsx from "clsx";
+import { useSelector } from "react-redux";
 
 const NotificationForm = () => {
+  const theme = useSelector((state) => state.activeTab.theme);
+
   const {
     register,
     handleSubmit,
@@ -18,14 +22,20 @@ const NotificationForm = () => {
       <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
         <label>
           <p className={style.label}>Заголовок рассылки</p>
-          <input className={style.titleNotification} {...register("title")} />
+          <input
+            className={clsx(style.titleNotification, theme && style.light)}
+            {...register("title")}
+          />
           {errors.title && (
             <p className={style.errorMsg}>{errors.title.message}</p>
           )}
         </label>
         <label>
           <p className={style.label}>Текст рассылки</p>
-          <textarea className={style.textNotification} {...register("text")} />
+          <textarea
+            className={clsx(style.textNotification, theme && style.light)}
+            {...register("text")}
+          />
           {errors.text && (
             <p className={style.errorMsg}>{errors.text.message}</p>
           )}
