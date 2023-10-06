@@ -42,6 +42,10 @@ const slice = createSlice({
       { name: "Метрика", code: "name", type: "str" },
       { name: "Показатель", code: "quantity", type: "str" },
     ],
+    tableHeaderSettings: [
+      { name: "Настройки", code: "name", type: "str" },
+      { name: "", code: "values", type: "str" },
+    ],
   },
 });
 

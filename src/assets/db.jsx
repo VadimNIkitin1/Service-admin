@@ -125,3 +125,8 @@ export const analytic = [
     quantity: 1234,
   },
 ];
+
+export const settings = [
+  { name: "График работы", values: "10:00-20:00" },
+  { name: "Язык", values: "Русский" },
+];
