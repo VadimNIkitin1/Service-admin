@@ -38,6 +38,10 @@ const slice = createSlice({
       { name: "User Name", code: "name", type: "str" },
       { name: "User ID", code: "userId", type: "str" },
     ],
+    tableHeaderAnalytic: [
+      { name: "Метрика", code: "name", type: "str" },
+      { name: "Показатель", code: "quantity", type: "str" },
+    ],
   },
 });
 

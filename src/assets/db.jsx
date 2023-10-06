@@ -110,3 +110,18 @@ export const clients = [
   { name: "SwarowskyDmitry", userId: 1111 },
   { name: "RyhlovNikita", userId: 4321 },
 ];
+
+export const analytic = [
+  {
+    name: "Выполнено заказов",
+    quantity: 1234,
+  },
+  {
+    name: "Кол-во клиентов",
+    quantity: 1212,
+  },
+  {
+    name: "Заказов на сумму:",
+    quantity: 1234,
+  },
+];
