@@ -21,6 +21,9 @@
   transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
   stroke-dasharray: 241 9999999;
   stroke-dashoffset: 0;
+  &.light {
+    stroke: #000;
+  }
 }
 
 .checked {
