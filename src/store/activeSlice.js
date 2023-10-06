@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const slice = createSlice({
   name: "active",
   initialState: {
-    active: 0,
+    active: "/menu",
   },
   reducers: {
     toggleTabs(state, action) {

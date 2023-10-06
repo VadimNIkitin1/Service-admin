@@ -8,7 +8,7 @@ const SideBarList = () => {
   return (
     <div>
       {sideBarList.map((el, idx) => (
-        <SideBarItem key={idx} item={el} idx={idx} />
+        <SideBarItem key={idx} item={el} />
       ))}
     </div>
   );

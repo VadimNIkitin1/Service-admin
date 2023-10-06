@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./SideBarItem.module.scss";
 import { toggleTabs } from "../../store/activeSlice";
 
-const SideBarItem = ({ item, idx }) => {
+const SideBarItem = ({ item }) => {
   const dispatch = useDispatch();
   const activeTab = useSelector((state) => state.activeTab.active);
   const { name, link, icon } = item;
@@ -11,10 +11,10 @@ const SideBarItem = ({ item, idx }) => {
   return (
     <Link
       className={
-        activeTab === idx ? style.sidebarItemActive : style.sidebarItem
+        activeTab === link ? style.sidebarItemActive : style.sidebarItem
       }
       to={link}
-      onClick={() => dispatch(toggleTabs(idx))}
+      onClick={() => dispatch(toggleTabs(link))}
     >
       {icon}
       <p>{name}</p>
