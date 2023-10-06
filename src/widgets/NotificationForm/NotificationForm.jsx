@@ -53,9 +53,9 @@ const NotificationForm = () => {
           )}
         </label>
         <label className={style.sendMeButton}>
-          <p className={style.labelImage}></p>
+          <p className={style.labelImage}>Отправить себе</p>
           <input
-            type="submit"
+            type="button"
             value={"Отправить себе"}
             className={style.imageNotification}
             {...register("sendMe")}
@@ -65,11 +65,10 @@ const NotificationForm = () => {
           )}
         </label>
         <label className={style.sendButton}>
-          <p className={style.labelImage}></p>
+          <p></p>
           <input
             type="submit"
             value={"Отправить рассылку"}
-            className={style.imageNotification}
             {...register("send")}
           />
           {errors.send && (
