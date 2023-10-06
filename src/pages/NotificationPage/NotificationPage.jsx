@@ -1,7 +1,12 @@
+import NotificationForm from "../../widgets/NotificationForm/NotificationForm";
 import style from "./NotificationPage.module.scss";
 
 const NotificationPage = () => {
-  return <div>NotificationPage</div>;
+  return (
+    <div className={style.NotificationPage}>
+      <NotificationForm />
+    </div>
+  );
 };
 
 export default NotificationPage;
