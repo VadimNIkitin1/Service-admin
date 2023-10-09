@@ -1,10 +1,14 @@
-import Checkbox from "../../shared/Checkbox/Checkbox";
-import style from "./TableRow.module.scss";
+import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import clsx from "clsx";
+
+import Checkbox from "../../shared/Checkbox/Checkbox";
 import Button from "../../shared/Button/Button";
 
+import clsx from "clsx";
+import style from "./TableRow.module.scss";
+
 const TableRow = ({ el, tableHeader }) => {
+  const location = useLocation();
   const theme = useSelector((state) => state.activeTab.theme);
 
   return (
@@ -30,8 +34,12 @@ const TableRow = ({ el, tableHeader }) => {
           }
         })}
       </div>
-      <Button className={style.editBtn}>Изменить</Button>
-      <Button className={style.deleteBtn}>Удалить</Button>
+      {location.pathname === "/menu" || location.pathname === "/categories" ? (
+        <>
+          <Button className={style.editBtn}>Изменить</Button>
+          <Button className={style.deleteBtn}>Удалить</Button>
+        </>
+      ) : null}
     </div>
   );
 };

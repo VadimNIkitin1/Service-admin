@@ -20,19 +20,19 @@
   }
 }
 
+.tableRow:nth-last-child(odd) {
+  background-color: $grey;
+  &.light {
+    background-color: $lightgreen;
+  }
+}
+
 .tableColumn:first-child {
   width: 120px;
 }
 
 .tableColumn {
   min-width: 90px;
-}
-
-.tableRow:nth-last-child(odd) {
-  background-color: $grey;
-  &.light {
-    background-color: $lightgreen;
-  }
 }
 
 .deleteBtn {
