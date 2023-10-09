@@ -1,35 +1,31 @@
 import TableRow from "../../entities/TableRow/TableRow";
-import { useSelector } from "react-redux";
-import clsx from "clsx";
+import TableHeader from "../../entities/TableHeader/TableHeader";
 
 import style from "./Table.module.scss";
 
 const Table = ({ data, tableHeader }) => {
-  const theme = useSelector((state) => state.activeTab.theme);
-
   return (
     <div className={style.table}>
-      <div className={clsx(style.tableHeader, theme && style.light)}>
-        {tableHeader.map((el) => (
-          <p key={el.name} className={style.tableColumn}>
-            {el.name}
-          </p>
-        ))}
-      </div>
+      <TableHeader tableHeader={tableHeader} />
       <div className={style.table}>
-        {data.map((el) => {
-          el["delete"] = () => {
-            console.log(`delete product-${el.name}`);
-          };
-          return (
-            <TableRow
-              key={el.name}
-              className={style.tableColumn}
-              el={el}
-              tableHeader={tableHeader}
-            />
-          );
-        })}
+        {data === undefined ? (
+          <div className={style.messageAddButton}>
+            <p className={style.message}>Нет добавленых элементов</p>
+            {/* <AddButton /> */}
+          </div>
+        ) : (
+          data.map((el) => {
+            el["delete"] = () => {
+              console.log(`delete product-${el.name}`);
+            };
+            data.map((el) => {
+              el["edit"] = () => {
+                console.log(`edit product-${el.name}`);
+              };
+            });
+            return <TableRow key={el.name} el={el} tableHeader={tableHeader} />;
+          })
+        )}
       </div>
     </div>
   );

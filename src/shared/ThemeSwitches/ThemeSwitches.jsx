@@ -5,7 +5,7 @@ import style from "./ThemeSwitches.module.scss";
 const ThemeSwitches = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.activeTab.theme);
-  console.log(theme);
+
   return (
     <div
       className={style.toggle_switch}
@@ -15,7 +15,12 @@ const ThemeSwitches = () => {
       }}
     >
       <label className={style.switch_label}>
-        <input type="checkbox" checked={theme} className={style.checkbox} />
+        <input
+          type="checkbox"
+          checked={theme}
+          onChange={() => console.log(theme)}
+          className={style.checkbox}
+        />
         <span className={style.slider}></span>
       </label>
     </div>

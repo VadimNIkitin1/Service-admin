@@ -8,6 +8,7 @@ const MenuPage = () => {
   const tableHeaderMenu = useSelector(
     (state) => state.menuElement.tableHeaderMenu
   );
+
   return (
     <div className={style.MenuPage}>
       <Table data={products} tableHeader={tableHeaderMenu} />
