@@ -9,6 +9,8 @@ const CategoriesPage = () => {
     (state) => state.menuElement.tableHeaderCategories
   );
 
+  // const categories = undefined;
+
   return (
     <div className={style.CategoriesPage}>
       <Table data={categories} tableHeader={tableHeaderCategories} />

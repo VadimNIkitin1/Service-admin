@@ -1,0 +1,46 @@
+@import "../../app/variable.module.scss";
+
+.add {
+  margin-left: 10px;
+  font-size: 12px;
+  color: $green;
+  border: 1px solid $green;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.add:hover {
+  background-color: $green;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.delete {
+  margin-left: 10px;
+  font-size: 12px;
+  color: red;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.delete:hover {
+  background-color: red;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.edit {
+  margin-left: 10px;
+  font-size: 12px;
+  color: $orange;
+  border: 1px solid $orange;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.edit:hover {
+  background-color: $orange;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}

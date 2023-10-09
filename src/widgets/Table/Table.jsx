@@ -1,5 +1,6 @@
 import TableRow from "../../entities/TableRow/TableRow";
 import TableHeader from "../../entities/TableHeader/TableHeader";
+import Button from "../../shared/Button/Button";
 
 import style from "./Table.module.scss";
 
@@ -11,7 +12,7 @@ const Table = ({ data, tableHeader }) => {
         {data === undefined ? (
           <div className={style.messageAddButton}>
             <p className={style.message}>Нет добавленых элементов</p>
-            {/* <AddButton /> */}
+            <Button type={"add"}>Добавить</Button>
           </div>
         ) : (
           data.map((el) => {

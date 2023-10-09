@@ -1,10 +1,5 @@
 @import "../../app/variable.module.scss";
 
-.container {
-  display: flex;
-  align-items: center;
-}
-
 .tableRow {
   display: flex;
   width: 100%;
@@ -33,34 +28,4 @@
 
 .tableColumn {
   min-width: 90px;
-}
-
-.deleteBtn {
-  margin-left: 10px;
-  font-size: 12px;
-  color: red;
-  border: 1px solid red;
-  border-radius: 10px;
-  padding: 5px 10px;
-}
-
-.deleteBtn:hover {
-  background-color: red;
-  color: #fff;
-  transition: all 0.3s ease-in-out;
-}
-
-.editBtn {
-  margin-left: 10px;
-  font-size: 12px;
-  color: $orange;
-  border: 1px solid $orange;
-  border-radius: 10px;
-  padding: 5px 10px;
-}
-
-.editBtn:hover {
-  background-color: $orange;
-  color: #fff;
-  transition: all 0.3s ease-in-out;
 }
