@@ -19,7 +19,7 @@ const CategoriesPage = () => {
   return (
     <div className={style.CategoriesPage}>
       <Table data={categories} tableHeader={tableHeaderCategories} />
-      {modal && <ModalCategories modal={modal} setModal={setModal} />}
+      {modal && <ModalCategories setModal={setModal} />}
       {categories === undefined ? (
         <div className={style.messageAddButton}>
           <p className={style.message}>Нет добавленых элементов</p>
