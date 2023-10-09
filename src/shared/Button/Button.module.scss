@@ -7,6 +7,10 @@
   border: 1px solid $green;
   border-radius: 10px;
   padding: 5px 10px;
+  &.light {
+    background-color: $green;
+    color: #fff;
+  }
 }
 
 .add:hover {
@@ -22,6 +26,10 @@
   border: 1px solid red;
   border-radius: 10px;
   padding: 5px 10px;
+  &.light {
+    background-color: red;
+    color: #fff;
+  }
 }
 
 .delete:hover {
@@ -37,6 +45,10 @@
   border: 1px solid $orange;
   border-radius: 10px;
   padding: 5px 10px;
+  &.light {
+    background-color: $orange;
+    color: #fff;
+  }
 }
 
 .edit:hover {
