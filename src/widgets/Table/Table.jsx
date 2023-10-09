@@ -9,24 +9,21 @@ const Table = ({ data, tableHeader }) => {
     <div className={style.table}>
       <TableHeader tableHeader={tableHeader} />
       <div className={style.table}>
-        {data === undefined ? (
-          <div className={style.messageAddButton}>
-            <p className={style.message}>Нет добавленых элементов</p>
-            <Button type={"add"}>Добавить</Button>
-          </div>
-        ) : (
-          data.map((el) => {
-            el["delete"] = () => {
-              console.log(`delete product-${el.name}`);
-            };
-            data.map((el) => {
-              el["edit"] = () => {
-                console.log(`edit product-${el.name}`);
+        {data === undefined
+          ? null
+          : data.map((el) => {
+              el["delete"] = () => {
+                console.log(`delete product-${el.name}`);
               };
-            });
-            return <TableRow key={el.name} el={el} tableHeader={tableHeader} />;
-          })
-        )}
+              data.map((el) => {
+                el["edit"] = () => {
+                  console.log(`edit product-${el.name}`);
+                };
+              });
+              return (
+                <TableRow key={el.name} el={el} tableHeader={tableHeader} />
+              );
+            })}
       </div>
     </div>
   );

@@ -27,12 +27,12 @@ const LoginForm = () => {
   };
 
   return (
-    <div className={style.LoginForm} onSubmit={handleSubmit(onSubmit)}>
+    <div className={style.LoginForm}>
       <h1 className={style.logoText}>
         ENVELOPE <GiEnvelope className={style.logo} />
       </h1>
       <h2 className={style.title}>Авторизация</h2>
-      <form className={style.form}>
+      <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
         <label className={style.label}>
           <p>Логин</p>
           <input
