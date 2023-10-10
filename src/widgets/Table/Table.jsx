@@ -1,6 +1,5 @@
 import TableRow from "../../entities/TableRow/TableRow";
 import TableHeader from "../../entities/TableHeader/TableHeader";
-import Button from "../../shared/Button/Button";
 
 import style from "./Table.module.scss";
 

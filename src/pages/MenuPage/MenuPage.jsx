@@ -22,7 +22,7 @@ const MenuPage = () => {
       {products === undefined ? (
         <div className={style.messageAddButton}>
           <p className={style.message}>Нет добавленых элементов</p>
-          <Button type="add" onClick={() => setModal(true)}>
+          <Button view="add" onClick={() => setModal(true)}>
             Добавить
           </Button>
         </div>

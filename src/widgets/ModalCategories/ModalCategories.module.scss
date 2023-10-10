@@ -6,8 +6,8 @@
   height: 100%;
   background-color: rgba($color: #000000, $alpha: 0.7);
   z-index: 10;
-  top: 80px;
-  left: 240px;
+  top: 0;
+  left: 0;
   &.close {
     display: none;
   }
@@ -15,8 +15,8 @@
 
 .container {
   position: relative;
-  top: 170px;
-  left: 370px;
+  top: 220px;
+  left: 470px;
   color: #fff;
   padding: 20px;
   border-radius: 15px;
@@ -63,6 +63,7 @@
 .modalBtn:hover {
   background-color: $green;
   color: #fff;
+  transition: all 0.3s ease-in-out;
 }
 
 .closeModalBtn {

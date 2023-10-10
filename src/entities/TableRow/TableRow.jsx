@@ -34,8 +34,8 @@ const TableRow = ({ el, tableHeader }) => {
       })}
       {location.pathname === "/menu" || location.pathname === "/categories" ? (
         <>
-          <Button type="edit">Изменить</Button>
-          <Button type="delete">Удалить</Button>
+          <Button view="edit">Изменить</Button>
+          <Button view="delete">Удалить</Button>
         </>
       ) : null}
     </div>

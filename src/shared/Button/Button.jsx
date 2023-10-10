@@ -3,16 +3,16 @@ import { useSelector } from "react-redux";
 import clsx from "clsx";
 import style from "./Button.module.scss";
 
-const Button = ({ type, ...props }) => {
+const Button = ({ view, ...props }) => {
   const theme = useSelector((state) => state.activeTab.theme);
 
   return (
     <button
       {...props}
       className={clsx(
-        type === "add" && style.add,
-        type === "delete" && style.delete,
-        type === "edit" && style.edit,
+        view === "add" && style.add,
+        view === "delete" && style.delete,
+        view === "edit" && style.edit,
         theme && style.light
       )}
     />

@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 
 import style from "./ModalCategories.module.scss";
+import Button from "../../shared/Button/Button";
 
 const ModalCategories = ({ setModal }) => {
   const {
@@ -34,13 +35,12 @@ const ModalCategories = ({ setModal }) => {
               <p className={style.errorMsg}>{errors.name.message}</p>
             )}
           </label>
-          <input type="submit" value="Добавить" className={style.modalBtn} />
-          <button
-            className={style.closeModalBtn}
-            onClick={() => setModal(false)}
-          >
+          <Button view="add" type={"submit"}>
+            Добавить
+          </Button>
+          <Button view="delete" onClick={() => setModal(false)}>
             Закрыть
-          </button>
+          </Button>
         </form>
       </div>
     </div>
