@@ -15,7 +15,7 @@ const slice = createSlice({
     sideBarList: [
       { name: "Меню", link: "/menu", icon: <MdOutlineMenuBook /> },
       { name: "Категории", link: "/categories", icon: <MdOutlineMenuOpen /> },
-      { name: "Клиенты", link: "/clients", icon: <MdPeopleAlt /> },
+      { name: "Пользователи", link: "/clients", icon: <MdPeopleAlt /> },
       { name: "Рассылки", link: "/notification", icon: <MdMessage /> },
       { name: "Аналитика", link: "/analytic", icon: <MdAnalytics /> },
       { name: "Настройки", link: "/settings", icon: <MdOutlineSettings /> },

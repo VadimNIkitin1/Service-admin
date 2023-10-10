@@ -44,6 +44,7 @@ const NotificationForm = () => {
           <p className={style.labelImage}>Выберите изображение рассылки</p>
           <input
             type="file"
+            accept="/image/*,.png,.jpg,.jpeg,.gif,.web,.webp"
             className={style.imageNotification}
             {...register("image")}
           />
@@ -75,7 +76,6 @@ const NotificationForm = () => {
           )}
         </label>
         <label className={style.sendButton}>
-          <p></p>
           <input
             type="submit"
             value={"Отправить рассылку"}
