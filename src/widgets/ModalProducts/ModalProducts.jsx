@@ -53,6 +53,7 @@ const ModalProducts = ({ setModal }) => {
               <input
                 type="text"
                 className={style.modalInput}
+                placeholder="Наименование"
                 {...register("name", {
                   maxLength: { value: 20, message: "Не более 20 символов" },
                 })}
@@ -68,6 +69,7 @@ const ModalProducts = ({ setModal }) => {
             <label className={style.modalLabel}>
               <p className={style.productTitle}>Описание</p>
               <textarea
+                placeholder="Описание"
                 type="text"
                 className={style.modalDescription}
                 {...register("description", { required: true })}
@@ -114,6 +116,7 @@ const ModalProducts = ({ setModal }) => {
                 <p className={style.productTitle}>Выход</p>
                 <div className={style.descGroup}>
                   <input
+                    placeholder="Выход"
                     type="number"
                     className={style.modalInputSmall}
                     {...register("weight", { required: true })}

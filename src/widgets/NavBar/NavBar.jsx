@@ -25,7 +25,6 @@ const NavBar = () => {
         Выйти
       </Button>
       <ThemeSwitches />
-      <Loader />
     </nav>
   );
 };
