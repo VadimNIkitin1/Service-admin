@@ -15,8 +15,8 @@ const NavBar = () => {
   return (
     <nav className={clsx(style.navbar, theme && style.light)}>
       <Link
-        to={"/menu"}
-        onClick={() => dispatch(toggleTabs("/menu"))}
+        to={"/:companies_id/menu"}
+        onClick={() => dispatch(toggleTabs("/:companies_id/menu"))}
         className={clsx(style.logoText, theme && style.light)}
       >
         ENVELOPE <GiEnvelope className={style.logo} />

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const slice = createSlice({
   name: "active",
   initialState: {
-    active: "/:company_id/shops",
+    active: "/shops",
     theme: false,
   },
   reducers: {

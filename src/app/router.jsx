@@ -23,7 +23,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route
-        path="/:company_id"
+        path="/:company_id/"
         element={<Layout />}
         errorElement={<ErrorPage />}
       >

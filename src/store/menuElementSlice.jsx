@@ -14,31 +14,31 @@ const slice = createSlice({
   name: "menuElement",
   initialState: {
     sideBarList: [
-      { name: "Магазины", link: "/:company_id/shops", icon: <MdStore /> },
-      { name: "Меню", link: "/:company_id/menu", icon: <MdOutlineMenuBook /> },
+      { name: "Магазины", link: "/shops", icon: <MdStore /> },
+      { name: "Меню", link: "/menu", icon: <MdOutlineMenuBook /> },
       {
         name: "Категории",
-        link: "/:company_id/categories",
+        link: "/categories",
         icon: <MdOutlineMenuOpen />,
       },
       {
         name: "Пользователи",
-        link: "/:company_id/clients",
+        link: "/clients",
         icon: <MdPeopleAlt />,
       },
       {
         name: "Рассылки",
-        link: "/:company_id/notification",
+        link: "/notification",
         icon: <MdMessage />,
       },
       {
         name: "Аналитика",
-        link: "/:company_id/analytic",
+        link: "/analytic",
         icon: <MdAnalytics />,
       },
       {
         name: "Настройки",
-        link: "/:company_id/settings",
+        link: "settings",
         icon: <MdOutlineSettings />,
       },
     ],
