@@ -19,14 +19,20 @@ const MenuPage = () => {
     <div className={style.MenuPage}>
       <Table data={products} tableHeader={tableHeaderMenu} />
       {modal && <ModalProducts setModal={setModal} />}
-      {products === undefined ? (
+      {products === undefined || products.length === 0 ? (
         <div className={style.messageAddButton}>
           <p className={style.message}>Нет добавленых элементов</p>
           <Button view="add" onClick={() => setModal(true)}>
-            Добавить
+            Добавить продукт
           </Button>
         </div>
-      ) : null}
+      ) : (
+        <div className={style.messageAddButton}>
+          <Button view="add" onClick={() => setModal(true)}>
+            Добавить продукт
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

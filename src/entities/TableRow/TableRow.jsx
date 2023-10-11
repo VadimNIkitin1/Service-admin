@@ -2,10 +2,10 @@ import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
 import Checkbox from "../../shared/Checkbox/Checkbox";
+import Button from "../../shared/Button/Button";
 
 import clsx from "clsx";
 import style from "./TableRow.module.scss";
-import Button from "../../shared/Button/Button";
 
 const TableRow = ({ el, tableHeader }) => {
   const location = useLocation();

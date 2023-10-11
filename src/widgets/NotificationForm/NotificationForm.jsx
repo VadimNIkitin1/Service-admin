@@ -48,7 +48,7 @@ const NotificationForm = () => {
               <p className={style.errorMsg}>{errors.text.message}</p>
             )}
           </label>
-          <InputFile {...register("file", { required: true })} />
+          <InputFile {...register("file")} />
         </div>
         <label className={style.imageInput}>
           <p className={style.labelImage}>Выберите получателей рассылки</p>

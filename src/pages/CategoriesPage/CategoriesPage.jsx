@@ -20,14 +20,20 @@ const CategoriesPage = () => {
     <div className={style.CategoriesPage}>
       <Table data={categories} tableHeader={tableHeaderCategories} />
       {modal && <ModalCategories setModal={setModal} />}
-      {categories === undefined ? (
+      {categories === undefined || categories.length === 0 ? (
         <div className={style.messageAddButton}>
           <p className={style.message}>Нет добавленых элементов</p>
           <Button view="add" onClick={() => setModal(true)}>
-            Добавить
+            Добавить категорию
           </Button>
         </div>
-      ) : null}
+      ) : (
+        <div className={style.messageAddButton}>
+          <Button view="add" onClick={() => setModal(true)}>
+            Добавить категорию
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
