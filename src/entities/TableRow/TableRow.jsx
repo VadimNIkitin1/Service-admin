@@ -39,6 +39,11 @@ const TableRow = ({ el, tableHeader }) => {
           <Button view="delete">Удалить</Button>
         </>
       ) : null}
+      {location.pathname === "/:company_id/settings" ? (
+        <>
+          <Button view="edit">Изменить</Button>
+        </>
+      ) : null}
     </div>
   );
 };

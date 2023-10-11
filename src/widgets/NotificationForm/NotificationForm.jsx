@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import style from "./NotificationForm.module.scss";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
-import InputFile from "../../entities/InputFile/InputFile";
+import InputFile from "../../shared/InputFile/InputFile";
 import Button from "../../shared/Button/Button";
 
 const NotificationForm = () => {

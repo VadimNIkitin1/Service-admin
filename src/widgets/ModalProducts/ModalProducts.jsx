@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { categories } from "../../assets/db";
 
 import style from "./ModalProducts.module.scss";
-import InputFile from "../../entities/InputFile/InputFile";
+import InputFile from "../../shared/InputFile/InputFile";
 import Button from "../../shared/Button/Button";
 
 const ModalProducts = ({ setModal }) => {
@@ -36,7 +36,7 @@ const ModalProducts = ({ setModal }) => {
               <select
                 {...register("category", { required: true })}
                 name="categories"
-                className={style.modalInput}
+                className={style.modalSelect}
               >
                 {categories.map((cat) => (
                   <option key={cat.name} value={cat.name}>
@@ -99,6 +99,18 @@ const ModalProducts = ({ setModal }) => {
                 />
               </div>
               <label className={style.modalLabel}>
+                <p className={style.productTitle}>Цена</p>
+                <input
+                  placeholder="Цена"
+                  type="number"
+                  className={style.modalInputSmall}
+                  {...register("price", { required: true })}
+                />
+                {errors.price && (
+                  <p className={style.errorMsg}>{errors.price.message}</p>
+                )}
+              </label>
+              <label className={style.modalLabel}>
                 <p className={style.productTitle}>Выход</p>
                 <div className={style.descGroup}>
                   <input
@@ -109,7 +121,7 @@ const ModalProducts = ({ setModal }) => {
                   <select
                     {...register("point", { required: true })}
                     name="point"
-                    className={style.modalInput}
+                    className={style.modalSelect}
                   >
                     <option value="item">Шт.</option>
                     <option value="gr">Гр.</option>
