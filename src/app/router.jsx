@@ -17,6 +17,7 @@ import NotificationPage from "../pages/NotificationPage/NotificationPage";
 import AnalyticPage from "../pages/AnalyticPage/AnalyticPage";
 import SettingsPage from "../pages/SettingsPage/SettingsPage";
 import RequireAuth from "../features/HOC/RequireAuth";
+import StoreCardsPage from "../pages/StoreCardsPage/StoreCardsPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -72,6 +73,15 @@ const router = createBrowserRouter(
           element={
             <RequireAuth>
               <SettingsPage />
+            </RequireAuth>
+          }
+          errorElement={<ErrorPage />}
+        />
+        <Route
+          path={"shops"}
+          element={
+            <RequireAuth>
+              <StoreCardsPage />
             </RequireAuth>
           }
           errorElement={<ErrorPage />}

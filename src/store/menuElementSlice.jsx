@@ -7,6 +7,7 @@ import {
   MdOutlineSettings,
   MdOutlineMenuOpen,
   MdPeopleAlt,
+  MdStore,
 } from "react-icons/md";
 
 const slice = createSlice({
@@ -19,6 +20,7 @@ const slice = createSlice({
       { name: "Рассылки", link: "/notification", icon: <MdMessage /> },
       { name: "Аналитика", link: "/analytic", icon: <MdAnalytics /> },
       { name: "Настройки", link: "/settings", icon: <MdOutlineSettings /> },
+      { name: "Магазины", link: "/shops", icon: <MdStore /> },
     ],
     tableHeaderCategories: [
       { name: "Наименование", code: "name", type: "str" },

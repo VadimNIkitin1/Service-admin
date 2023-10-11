@@ -1,3 +1,11 @@
+export const storeCard = [
+  "Магазин №1",
+  "Магазин №2",
+  "Магазин №3",
+  "Магазин №4",
+  "Магазин №5",
+];
+
 export const categories = [
   { name: "Пицца" },
   { name: "Роллы" },
