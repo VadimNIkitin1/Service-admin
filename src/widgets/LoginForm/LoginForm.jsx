@@ -30,15 +30,13 @@ const LoginForm = () => {
 
   const onSubmit = () => {
     dispatch(toggleAuth(true));
-    // alert(JSON.stringify(data));
+
     reset();
   };
 
-  console.log(auth);
-
   useEffect(() => {
     if (auth) {
-      navigate("/menu", { replace: true });
+      navigate("/:company_id/shops", { replace: true });
     }
   }, [auth]);
 

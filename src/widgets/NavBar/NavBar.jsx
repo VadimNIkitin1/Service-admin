@@ -5,6 +5,8 @@ import { GiEnvelope } from "react-icons/gi";
 import style from "./NavBar.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
+import Button from "../../shared/Button/Button";
+import { toggleAuth } from "../../store/authSlice";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -18,6 +20,9 @@ const NavBar = () => {
       >
         ENVELOPE <GiEnvelope className={style.logo} />
       </Link>
+      <Button view={"delete"} onClick={() => dispatch(toggleAuth(false))}>
+        Выйти
+      </Button>
       <ThemeSwitches />
     </nav>
   );

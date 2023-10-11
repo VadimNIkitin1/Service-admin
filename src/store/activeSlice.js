@@ -3,15 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 const slice = createSlice({
   name: "active",
   initialState: {
-    active: "/menu",
+    active: "/:company_id/shops",
     theme: false,
   },
   reducers: {
     toggleTabs(state, action) {
       state.active = action.payload;
     },
-    toggleTheme(state, action) {
-      console.log("toggleTheme", "123");
+    toggleTheme(state) {
       state.theme = !state.theme;
     },
   },

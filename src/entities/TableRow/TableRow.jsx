@@ -32,7 +32,8 @@ const TableRow = ({ el, tableHeader }) => {
             break;
         }
       })}
-      {location.pathname === "/menu" || location.pathname === "/categories" ? (
+      {location.pathname === "/:company_id/menu" ||
+      location.pathname === "/:company_id/categories" ? (
         <>
           <Button view="edit">Изменить</Button>
           <Button view="delete">Удалить</Button>

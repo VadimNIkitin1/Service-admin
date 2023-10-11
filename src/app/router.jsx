@@ -22,9 +22,22 @@ import StoreCardsPage from "../pages/StoreCardsPage/StoreCardsPage";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
+      <Route
+        path="/:company_id"
+        element={<Layout />}
+        errorElement={<ErrorPage />}
+      >
         <Route
-          path={"menu"}
+          path={"/:company_id/shops"}
+          element={
+            <RequireAuth>
+              <StoreCardsPage />
+            </RequireAuth>
+          }
+          errorElement={<ErrorPage />}
+        />
+        <Route
+          path={"/:company_id/menu"}
           element={
             <RequireAuth>
               <MenuPage />
@@ -33,7 +46,7 @@ const router = createBrowserRouter(
           errorElement={<ErrorPage />}
         />
         <Route
-          path={"categories"}
+          path={"/:company_id/categories"}
           element={
             <RequireAuth>
               <CategoriesPage />
@@ -42,7 +55,7 @@ const router = createBrowserRouter(
           errorElement={<ErrorPage />}
         />
         <Route
-          path={"clients"}
+          path={"/:company_id/clients"}
           element={
             <RequireAuth>
               <ClientsPage />
@@ -51,7 +64,7 @@ const router = createBrowserRouter(
           errorElement={<ErrorPage />}
         />
         <Route
-          path={"notification"}
+          path={"/:company_id/notification"}
           element={
             <RequireAuth>
               <NotificationPage />
@@ -60,7 +73,7 @@ const router = createBrowserRouter(
           errorElement={<ErrorPage />}
         />
         <Route
-          path={"analytic"}
+          path={"/:company_id/analytic"}
           element={
             <RequireAuth>
               <AnalyticPage />
@@ -69,19 +82,10 @@ const router = createBrowserRouter(
           errorElement={<ErrorPage />}
         />
         <Route
-          path={"settings"}
+          path={"/:company_id/settings"}
           element={
             <RequireAuth>
               <SettingsPage />
-            </RequireAuth>
-          }
-          errorElement={<ErrorPage />}
-        />
-        <Route
-          path={"shops"}
-          element={
-            <RequireAuth>
-              <StoreCardsPage />
             </RequireAuth>
           }
           errorElement={<ErrorPage />}

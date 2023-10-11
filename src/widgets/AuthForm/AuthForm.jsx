@@ -1,10 +1,17 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { GiEnvelope } from "react-icons/gi";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleAuth } from "../../store/authSlice";
+import { useNavigate } from "react-router-dom";
 
 import style from "./AuthForm.module.scss";
+import { useEffect } from "react";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const auth = useSelector((state) => state.auth.auth);
   const {
     register,
     handleSubmit,
@@ -21,10 +28,17 @@ const LoginForm = () => {
   const PASSWORD_REGEXP =
     /^.*(?=.{8,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*?()]).*$/iu;
 
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+  const onSubmit = () => {
+    dispatch(toggleAuth(true));
+
     reset();
   };
+
+  useEffect(() => {
+    if (auth) {
+      navigate("/:company_id/shops", { replace: true });
+    }
+  }, [auth]);
 
   return (
     <div className={style.AuthForm}>

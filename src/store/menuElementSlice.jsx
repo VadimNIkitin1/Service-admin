@@ -14,13 +14,33 @@ const slice = createSlice({
   name: "menuElement",
   initialState: {
     sideBarList: [
-      { name: "Меню", link: "/menu", icon: <MdOutlineMenuBook /> },
-      { name: "Категории", link: "/categories", icon: <MdOutlineMenuOpen /> },
-      { name: "Пользователи", link: "/clients", icon: <MdPeopleAlt /> },
-      { name: "Рассылки", link: "/notification", icon: <MdMessage /> },
-      { name: "Аналитика", link: "/analytic", icon: <MdAnalytics /> },
-      { name: "Настройки", link: "/settings", icon: <MdOutlineSettings /> },
-      { name: "Магазины", link: "/shops", icon: <MdStore /> },
+      { name: "Магазины", link: "/:company_id/shops", icon: <MdStore /> },
+      { name: "Меню", link: "/:company_id/menu", icon: <MdOutlineMenuBook /> },
+      {
+        name: "Категории",
+        link: "/:company_id/categories",
+        icon: <MdOutlineMenuOpen />,
+      },
+      {
+        name: "Пользователи",
+        link: "/:company_id/clients",
+        icon: <MdPeopleAlt />,
+      },
+      {
+        name: "Рассылки",
+        link: "/:company_id/notification",
+        icon: <MdMessage />,
+      },
+      {
+        name: "Аналитика",
+        link: "/:company_id/analytic",
+        icon: <MdAnalytics />,
+      },
+      {
+        name: "Настройки",
+        link: "/:company_id/settings",
+        icon: <MdOutlineSettings />,
+      },
     ],
     tableHeaderCategories: [
       { name: "Наименование", code: "name", type: "str" },
