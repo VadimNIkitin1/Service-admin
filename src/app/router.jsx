@@ -16,47 +16,72 @@ import ClientsPage from "../pages/ClientsPage/ClientsPage";
 import NotificationPage from "../pages/NotificationPage/NotificationPage";
 import AnalyticPage from "../pages/AnalyticPage/AnalyticPage";
 import SettingsPage from "../pages/SettingsPage/SettingsPage";
+import RequireAuth from "../features/HOC/RequireAuth";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
         <Route
-          path={"about"}
-          element={<AboutPage />}
+          path={"menu"}
+          element={
+            <RequireAuth>
+              <MenuPage />
+            </RequireAuth>
+          }
           errorElement={<ErrorPage />}
         />
         <Route
           path={"categories"}
-          element={<CategoriesPage />}
-          errorElement={<ErrorPage />}
-        />
-        <Route
-          path={"menu"}
-          element={<MenuPage />}
+          element={
+            <RequireAuth>
+              <CategoriesPage />
+            </RequireAuth>
+          }
           errorElement={<ErrorPage />}
         />
         <Route
           path={"clients"}
-          element={<ClientsPage />}
+          element={
+            <RequireAuth>
+              <ClientsPage />
+            </RequireAuth>
+          }
           errorElement={<ErrorPage />}
         />
         <Route
           path={"notification"}
-          element={<NotificationPage />}
+          element={
+            <RequireAuth>
+              <NotificationPage />
+            </RequireAuth>
+          }
           errorElement={<ErrorPage />}
         />
         <Route
           path={"analytic"}
-          element={<AnalyticPage />}
+          element={
+            <RequireAuth>
+              <AnalyticPage />
+            </RequireAuth>
+          }
           errorElement={<ErrorPage />}
         />
         <Route
           path={"settings"}
-          element={<SettingsPage />}
+          element={
+            <RequireAuth>
+              <SettingsPage />
+            </RequireAuth>
+          }
           errorElement={<ErrorPage />}
         />
       </Route>
+      <Route
+        path={"about"}
+        element={<AboutPage />}
+        errorElement={<ErrorPage />}
+      />
       <Route
         path={"auth"}
         element={<AuthPage />}

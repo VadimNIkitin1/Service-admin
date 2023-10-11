@@ -1,10 +1,17 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GiEnvelope } from "react-icons/gi";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleAuth } from "../../store/authSlice";
 
 import style from "./LoginForm.module.scss";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const auth = useSelector((state) => state.auth.auth);
+
   const {
     register,
     handleSubmit,
@@ -21,10 +28,19 @@ const LoginForm = () => {
   const PASSWORD_REGEXP =
     /^.*(?=.{8,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*?()]).*$/iu;
 
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+  const onSubmit = () => {
+    dispatch(toggleAuth(true));
+    // alert(JSON.stringify(data));
     reset();
   };
+
+  console.log(auth);
+
+  useEffect(() => {
+    if (auth) {
+      navigate("/menu", { replace: true });
+    }
+  }, [auth]);
 
   return (
     <div className={style.LoginForm}>
