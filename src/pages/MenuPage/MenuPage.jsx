@@ -13,7 +13,7 @@ const MenuPage = () => {
     (state) => state.menuElement.tableHeaderMenu
   );
 
-  const products = undefined;
+  // const products = undefined;
 
   return (
     <div className={style.MenuPage}>
