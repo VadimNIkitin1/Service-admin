@@ -5,10 +5,8 @@ import { useSelector } from "react-redux";
 const StoreCard = (props) => {
   const theme = useSelector((state) => state.activeTab.theme);
   return (
-    <div className={style.card}>
-      <div className={clsx(style.card2, theme && style.light)}>
-        <p>{props.name}</p>
-      </div>
+    <div className={clsx(style.card, theme && style.light)}>
+      <p>{props.name}</p>
     </div>
   );
 };

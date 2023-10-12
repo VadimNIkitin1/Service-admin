@@ -19,14 +19,6 @@ const TableHeader = ({ tableHeader }) => {
           {el.name}
         </p>
       ))}
-      {location.pathname === `/${company_id}/menu` && (
-        <Button
-          view={"add"}
-          onClick={() => dispatch(toggleModalProducts(true))}
-        >
-          <BsFillPlusSquareFill />
-        </Button>
-      )}
     </div>
   );
 };

@@ -6,6 +6,8 @@ export const storeCard = [
   "Магазин №5",
 ];
 
+export const prices = ["2990", "8490", "16990", "29990"];
+
 export const categories = [
   { name: "Пицца" },
   { name: "Роллы" },

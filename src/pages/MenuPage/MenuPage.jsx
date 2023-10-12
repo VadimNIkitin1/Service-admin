@@ -7,7 +7,10 @@ import { BsFillPlusSquareFill } from "react-icons/bs";
 import style from "./MenuPage.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import ModalCategories from "../../widgets/ModalCategories/ModalCategories";
-import { toggleModalCategories } from "../../store/activeSlice";
+import {
+  toggleModalCategories,
+  toggleModalProducts,
+} from "../../store/activeSlice";
 
 const MenuPage = () => {
   const dispatch = useDispatch();
@@ -23,9 +26,20 @@ const MenuPage = () => {
 
   return (
     <div className={style.MenuPage}>
-      <Button view="add" onClick={() => dispatch(toggleModalCategories(true))}>
-        Добавить категорию <BsFillPlusSquareFill />
-      </Button>
+      <div style={{ display: "flex" }}>
+        <Button
+          view="add"
+          onClick={() => dispatch(toggleModalCategories(true))}
+        >
+          Добавить категорию <BsFillPlusSquareFill />
+        </Button>
+        <Button
+          view={"add"}
+          onClick={() => dispatch(toggleModalProducts(true))}
+        >
+          Добавить продукт <BsFillPlusSquareFill />
+        </Button>
+      </div>
       <Table data={products} tableHeader={tableHeaderMenu} />
       {modalProducts && <ModalProducts />}
       {modalCategories && <ModalCategories />}
