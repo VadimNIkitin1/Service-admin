@@ -5,7 +5,7 @@ import {
   MdMessage,
   MdAnalytics,
   MdOutlineSettings,
-  MdOutlineMenuOpen,
+  MdPriceChange,
   MdPeopleAlt,
   MdStore,
 } from "react-icons/md";
@@ -15,12 +15,12 @@ const slice = createSlice({
   initialState: {
     sideBarList: [
       { name: "Магазины", link: "/shops", icon: <MdStore /> },
-      { name: "Меню", link: "/menu", icon: <MdOutlineMenuBook /> },
       {
-        name: "Категории",
-        link: "/categories",
-        icon: <MdOutlineMenuOpen />,
+        name: "Тарифы",
+        link: "/prices",
+        icon: <MdPriceChange />,
       },
+      { name: "Меню", link: "/menu", icon: <MdOutlineMenuBook /> },
       {
         name: "Пользователи",
         link: "/clients",

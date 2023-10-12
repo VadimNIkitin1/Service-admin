@@ -10,7 +10,7 @@ import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import AuthPage from "../pages/AuthPage/AuthPage";
 import Layout from "../widgets/Layout/Layout";
 import LoginPage from "../pages/LoginPage/LoginPage";
-import CategoriesPage from "../pages/CategoriesPage/CategoriesPage";
+import PricesPage from "../pages/PricesPage/PricesPage";
 import MenuPage from "../pages/MenuPage/MenuPage";
 import ClientsPage from "../pages/ClientsPage/ClientsPage";
 import NotificationPage from "../pages/NotificationPage/NotificationPage";
@@ -41,15 +41,6 @@ const router = createBrowserRouter(
           element={
             <RequireAuth>
               <MenuPage />
-            </RequireAuth>
-          }
-          errorElement={<ErrorPage />}
-        />
-        <Route
-          path={"/:company_id/categories"}
-          element={
-            <RequireAuth>
-              <CategoriesPage />
             </RequireAuth>
           }
           errorElement={<ErrorPage />}
@@ -86,6 +77,15 @@ const router = createBrowserRouter(
           element={
             <RequireAuth>
               <SettingsPage />
+            </RequireAuth>
+          }
+          errorElement={<ErrorPage />}
+        />
+        <Route
+          path={"/:company_id/prices"}
+          element={
+            <RequireAuth>
+              <PricesPage />
             </RequireAuth>
           }
           errorElement={<ErrorPage />}
