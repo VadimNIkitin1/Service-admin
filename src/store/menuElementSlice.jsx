@@ -38,7 +38,7 @@ const slice = createSlice({
       },
       {
         name: "Настройки",
-        link: "settings",
+        link: "/settings",
         icon: <MdOutlineSettings />,
       },
     ],

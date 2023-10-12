@@ -4,6 +4,7 @@ const slice = createSlice({
   name: "auth",
   initialState: {
     auth: true,
+    company_id: 1,
   },
   reducers: {
     toggleAuth(state, action) {

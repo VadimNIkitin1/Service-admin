@@ -8,10 +8,9 @@ const SideBarItem = ({ item }) => {
   const dispatch = useDispatch();
   const activeTab = useSelector((state) => state.activeTab.active);
   const theme = useSelector((state) => state.activeTab.theme);
+  const company_id = useSelector((state) => state.auth.company_id);
 
   const { name, link, icon } = item;
-  const company_id = 1;
-  console.log(link);
 
   return (
     <Link

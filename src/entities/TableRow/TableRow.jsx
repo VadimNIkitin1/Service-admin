@@ -10,6 +10,7 @@ import style from "./TableRow.module.scss";
 const TableRow = ({ el, tableHeader }) => {
   const location = useLocation();
   const theme = useSelector((state) => state.activeTab.theme);
+  const company_id = useSelector((state) => state.auth.company_id);
 
   return (
     <div className={clsx(style.tableRow, theme && style.light)}>
@@ -32,14 +33,14 @@ const TableRow = ({ el, tableHeader }) => {
             break;
         }
       })}
-      {location.pathname === "/:company_id/menu" ||
-      location.pathname === "/:company_id/categories" ? (
+      {location.pathname === `/${company_id}/menu` ||
+      location.pathname === `/${company_id}/categories` ? (
         <>
           <Button view="edit">Изменить</Button>
           <Button view="delete">Удалить</Button>
         </>
       ) : null}
-      {location.pathname === "/:company_id/settings" ? (
+      {location.pathname === `/${company_id}/settings` ? (
         <>
           <Button view="edit">Изменить</Button>
         </>
