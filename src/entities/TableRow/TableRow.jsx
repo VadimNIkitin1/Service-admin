@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { MdOutlineEditCalendar, MdDeleteForever } from "react-icons/md";
 
 import Checkbox from "../../shared/Checkbox/Checkbox";
 import Button from "../../shared/Button/Button";
@@ -36,13 +37,19 @@ const TableRow = ({ el, tableHeader }) => {
       {location.pathname === `/${company_id}/menu` ||
       location.pathname === `/${company_id}/categories` ? (
         <>
-          <Button view="edit">Изменить</Button>
-          <Button view="delete">Удалить</Button>
+          <Button view="edit">
+            <MdOutlineEditCalendar />
+          </Button>
+          <Button view="delete">
+            <MdDeleteForever />
+          </Button>
         </>
       ) : null}
       {location.pathname === `/${company_id}/settings` ? (
         <>
-          <Button view="edit">Изменить</Button>
+          <Button view="edit">
+            <MdOutlineEditCalendar />
+          </Button>
         </>
       ) : null}
     </div>

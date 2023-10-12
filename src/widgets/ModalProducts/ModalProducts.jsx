@@ -4,8 +4,11 @@ import { categories } from "../../assets/db";
 import style from "./ModalProducts.module.scss";
 import InputFile from "../../shared/InputFile/InputFile";
 import Button from "../../shared/Button/Button";
+import { useDispatch } from "react-redux";
+import { toggleModalProducts } from "../../store/activeSlice";
 
 const ModalProducts = ({ setModal }) => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -15,12 +18,15 @@ const ModalProducts = ({ setModal }) => {
 
   const onSubmit = (data) => {
     console.log(data);
-    setModal(false);
+    dispatch(toggleModalProducts(false));
     reset();
   };
 
   return (
-    <div className={style.ModalProducts} onClick={() => setModal(false)}>
+    <div
+      className={style.ModalProducts}
+      onClick={() => dispatch(toggleModalProducts(false))}
+    >
       <div className={style.container} onClick={(e) => e.stopPropagation()}>
         <h1 className={style.modalTitle}>Добавить продукт</h1>
         <form className={style.modalForm} onSubmit={handleSubmit(onSubmit)}>
@@ -35,7 +41,7 @@ const ModalProducts = ({ setModal }) => {
               <p className={style.productTitle}>Категория</p>
               <select
                 {...register("category", { required: true })}
-                name="categories"
+                name="category"
                 className={style.modalSelect}
               >
                 {categories.map((cat) => (
@@ -143,7 +149,10 @@ const ModalProducts = ({ setModal }) => {
             <InputFile {...register("image", { required: true })} />
           </div>
           <Button view="add">Добавить</Button>
-          <Button view="delete" onClick={() => setModal(false)}>
+          <Button
+            view="delete"
+            onClick={() => dispatch(toggleModalProducts(false))}
+          >
             Закрыть
           </Button>
         </form>

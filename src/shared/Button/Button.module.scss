@@ -1,16 +1,37 @@
 @import "../../app/variable.module.scss";
 
-.add {
-  width: 100px;
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
   margin: 5px;
-  font-size: 12px;
-  color: $green;
-  border: 1px solid $green;
+  font-size: 20px;
   border-radius: 10px;
-  padding: 8px 0px;
-  &.light {
-    background-color: $green;
-    color: #fff;
+  padding: 10px;
+  &.add {
+    border: 2px solid $green;
+    color: $green;
+    &.light {
+      background-color: $green;
+      color: #fff;
+    }
+  }
+  &.delete {
+    color: red;
+    border: 2px solid red;
+    &.light {
+      background-color: red;
+      color: #fff;
+    }
+  }
+  &.edit {
+    color: $orange;
+    border: 2px solid $orange;
+    &.light {
+      background-color: $orange;
+      color: #fff;
+    }
   }
 }
 
@@ -20,38 +41,10 @@
   transition: all 0.3s ease-in-out;
 }
 
-.delete {
-  width: 100px;
-  margin: 5px;
-  font-size: 12px;
-  color: red;
-  border: 1px solid red;
-  border-radius: 10px;
-  padding: 8px 0px;
-  &.light {
-    background-color: red;
-    color: #fff;
-  }
-}
-
 .delete:hover {
   background-color: red;
   color: #fff;
   transition: all 0.3s ease-in-out;
-}
-
-.edit {
-  width: 100px;
-  margin: 5px;
-  font-size: 12px;
-  color: $orange;
-  border: 1px solid $orange;
-  border-radius: 10px;
-  padding: 8px 0px;
-  &.light {
-    background-color: $orange;
-    color: #fff;
-  }
 }
 
 .edit:hover {

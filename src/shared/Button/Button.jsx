@@ -10,6 +10,7 @@ const Button = ({ view, ...props }) => {
     <button
       {...props}
       className={clsx(
+        style.button,
         view === "add" && style.add,
         view === "delete" && style.delete,
         view === "edit" && style.edit,

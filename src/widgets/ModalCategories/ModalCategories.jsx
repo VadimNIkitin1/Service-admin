@@ -2,8 +2,11 @@ import { useForm } from "react-hook-form";
 
 import style from "./ModalCategories.module.scss";
 import Button from "../../shared/Button/Button";
+import { useDispatch } from "react-redux";
+import { toggleModalCategories } from "../../store/activeSlice";
 
 const ModalCategories = ({ setModal }) => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -18,7 +21,10 @@ const ModalCategories = ({ setModal }) => {
   };
 
   return (
-    <div className={style.ModalCategories} onClick={() => setModal(false)}>
+    <div
+      className={style.ModalCategories}
+      onClick={() => dispatch(toggleModalCategories(false))}
+    >
       <div className={style.container} onClick={(e) => e.stopPropagation()}>
         <h1 className={style.modalTitle}>Добавить категорию</h1>
         <form className={style.modalForm} onSubmit={handleSubmit(onSubmit)}>
@@ -38,7 +44,10 @@ const ModalCategories = ({ setModal }) => {
           <Button view="add" type={"submit"}>
             Добавить
           </Button>
-          <Button view="delete" onClick={() => setModal(false)}>
+          <Button
+            view="delete"
+            onClick={() => dispatch(toggleModalCategories(false))}
+          >
             Закрыть
           </Button>
         </form>

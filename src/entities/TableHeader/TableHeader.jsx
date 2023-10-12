@@ -1,8 +1,12 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import style from "./TableHeader.module.scss";
 import clsx from "clsx";
+import Button from "../../shared/Button/Button";
+import { toggleModalProducts } from "../../store/activeSlice";
+import { BsFillPlusSquareFill } from "react-icons/bs";
 
 const TableHeader = ({ tableHeader }) => {
+  const dispatch = useDispatch();
   const theme = useSelector((state) => state.activeTab.theme);
 
   return (
@@ -12,6 +16,9 @@ const TableHeader = ({ tableHeader }) => {
           {el.name}
         </p>
       ))}
+      <Button view={"add"} onClick={() => dispatch(toggleModalProducts(true))}>
+        <BsFillPlusSquareFill />
+      </Button>
     </div>
   );
 };
