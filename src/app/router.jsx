@@ -18,6 +18,7 @@ import AnalyticPage from "../pages/AnalyticPage/AnalyticPage";
 import SettingsPage from "../pages/SettingsPage/SettingsPage";
 import RequireAuth from "../features/HOC/RequireAuth";
 import StoreCardsPage from "../pages/StoreCardsPage/StoreCardsPage";
+import CategoriesPage from "../pages/CategoriesPage/CategoriesPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,6 +42,15 @@ const router = createBrowserRouter(
           element={
             <RequireAuth>
               <MenuPage />
+            </RequireAuth>
+          }
+          errorElement={<ErrorPage />}
+        />
+        <Route
+          path={"/:company_id/categories"}
+          element={
+            <RequireAuth>
+              <CategoriesPage />
             </RequireAuth>
           }
           errorElement={<ErrorPage />}

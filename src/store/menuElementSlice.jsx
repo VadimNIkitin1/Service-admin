@@ -8,6 +8,7 @@ import {
   MdPriceChange,
   MdPeopleAlt,
   MdStore,
+  MdList,
 } from "react-icons/md";
 
 const slice = createSlice({
@@ -20,6 +21,7 @@ const slice = createSlice({
         link: "/prices",
         icon: <MdPriceChange />,
       },
+      { name: "Категории", link: "/categories", icon: <MdList /> },
       { name: "Меню", link: "/menu", icon: <MdOutlineMenuBook /> },
       {
         name: "Пользователи",
