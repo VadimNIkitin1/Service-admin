@@ -16,8 +16,6 @@ const slice = createSlice({
   name: "categories",
   initialState: {
     categories: [],
-    status: null,
-    error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
