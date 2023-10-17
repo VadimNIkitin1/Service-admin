@@ -21,7 +21,9 @@ const Table = ({ data, tableHeader }) => {
           //     console.log(`edit product-${el.name}`);
           //   };
           // });
-          return <TableRow key={el.name} el={el} tableHeader={tableHeader} />;
+          return (
+            <TableRow key={el.name_rus} el={el} tableHeader={tableHeader} />
+          );
         })
       )}
     </>

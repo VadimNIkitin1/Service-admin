@@ -9,7 +9,6 @@ import clsx from "clsx";
 import style from "./TableRow.module.scss";
 
 const TableRow = ({ el, tableHeader }) => {
-  console.log(el);
   const location = useLocation();
   const theme = useSelector((state) => state.activeTab.theme);
   const company_id = useSelector((state) => state.auth.company_id);

@@ -16,7 +16,6 @@ const ModalCategories = () => {
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(addedCategory(data));
     dispatch(toggleModalCategories(false));
   };

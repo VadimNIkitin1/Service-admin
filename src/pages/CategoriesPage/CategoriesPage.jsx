@@ -12,17 +12,17 @@ const CategoriesPage = () => {
   const categories = useSelector((state) => state.categories.categories);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchCategories());
-  }, []);
+  const modalCategories = useSelector(
+    (state) => state.activeTab.modalCategories
+  );
 
   const tableHeaderCategories = useSelector(
     (state) => state.menuElement.tableHeaderCategories
   );
 
-  const modalCategories = useSelector(
-    (state) => state.activeTab.modalCategories
-  );
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, [modalCategories]);
 
   return (
     <div className={style.page}>
