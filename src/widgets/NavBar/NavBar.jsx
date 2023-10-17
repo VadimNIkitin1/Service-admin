@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
 import Button from "../../shared/Button/Button";
 import { toggleAuth } from "../../store/authSlice";
-import Loader from "../../shared/Loader/Loader";
 
 const NavBar = () => {
   const dispatch = useDispatch();

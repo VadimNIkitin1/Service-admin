@@ -12,6 +12,7 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth.auth);
+  const company_id = useSelector((state) => state.auth.company_id);
   const {
     register,
     handleSubmit,
@@ -36,7 +37,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (auth) {
-      navigate("/:company_id/shops", { replace: true });
+      navigate(`/${company_id}/shops`, { replace: true });
     }
   }, [auth]);
 

@@ -102,7 +102,7 @@ const router = createBrowserRouter(
         />
       </Route>
       <Route
-        path={"about"}
+        path={"/about"}
         element={<AboutPage />}
         errorElement={<ErrorPage />}
       />
