@@ -28,7 +28,7 @@ const TableRow = ({ el, tableHeader }) => {
           default:
             return (
               <p key={i.name} className={style.tableColumn}>
-                {el[i.code]}
+                {el.name_rus}
               </p>
             );
             break;
