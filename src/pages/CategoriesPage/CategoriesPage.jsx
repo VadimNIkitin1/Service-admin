@@ -8,13 +8,14 @@ import { toggleModalCategories } from "../../store/activeSlice";
 import ModalCategories from "../../widgets/ModalCategories/ModalCategories";
 import { useEffect, useState } from "react";
 import { getCategories } from "../../app/api";
+import { fetchCategories } from "../../store/categorySlice";
 
 const CategoriesPage = () => {
-  const [categories, setCategories] = useState([]);
+  const categories = useSelector((state) => state.categories.categories);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setCategories(getCategories());
+    dispatch(fetchCategories());
   }, []);
 
   const tableHeaderCategories = useSelector(

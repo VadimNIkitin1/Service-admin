@@ -7,19 +7,23 @@ const Table = ({ data, tableHeader }) => {
   return (
     <>
       <TableHeader tableHeader={tableHeader} />
-      {data === undefined || data.length === 0
-        ? null
-        : data.map((el) => {
-            el["delete"] = () => {
-              console.log(`delete product-${el.name}`);
+      {data === undefined || data.length === 0 ? (
+        <div className={style.messageAddButton}>
+          <p className={style.message}>Нет добавленых элементов</p>
+        </div>
+      ) : (
+        data.map((el) => {
+          el["delete"] = () => {
+            console.log(`delete product-${el.name}`);
+          };
+          data.map((el) => {
+            el["edit"] = () => {
+              console.log(`edit product-${el.name}`);
             };
-            data.map((el) => {
-              el["edit"] = () => {
-                console.log(`edit product-${el.name}`);
-              };
-            });
-            return <TableRow key={el.name} el={el} tableHeader={tableHeader} />;
-          })}
+          });
+          return <TableRow key={el.name} el={el} tableHeader={tableHeader} />;
+        })
+      )}
     </>
   );
 };
