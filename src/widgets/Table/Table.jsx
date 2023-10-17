@@ -13,14 +13,14 @@ const Table = ({ data, tableHeader }) => {
         </div>
       ) : (
         data.map((el) => {
-          el["delete"] = () => {
-            console.log(`delete product-${el.name}`);
-          };
-          data.map((el) => {
-            el["edit"] = () => {
-              console.log(`edit product-${el.name}`);
-            };
-          });
+          // el["delete"] = () => {
+          //   console.log(`delete product-${el.name}`);
+          // };
+          // data.map((el) => {
+          //   el["edit"] = () => {
+          //     console.log(`edit product-${el.name}`);
+          //   };
+          // });
           return <TableRow key={el.name} el={el} tableHeader={tableHeader} />;
         })
       )}
