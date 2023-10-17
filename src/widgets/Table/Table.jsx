@@ -4,6 +4,7 @@ import TableHeader from "../../entities/TableHeader/TableHeader";
 import style from "./Table.module.scss";
 
 const Table = ({ data, tableHeader }) => {
+  console.log(data);
   return (
     <>
       <TableHeader tableHeader={tableHeader} />

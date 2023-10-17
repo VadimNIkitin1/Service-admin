@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true;
 
 export const getCategories = async () => {
   try {
-    const res = await axios.get(`category`);
+    const res = await axios.get(`category/`);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -14,7 +14,7 @@ export const getCategories = async () => {
 
 export const addCategory = async (data) => {
   try {
-    const res = await axios.post(`category`, data, {
+    const res = await axios.post(`category/`, data, {
       headers: {
         "Content-Type": "application/json",
       },

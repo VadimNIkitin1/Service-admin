@@ -33,11 +33,6 @@ const CategoriesPage = () => {
       </Button>
       <Table data={categories} tableHeader={tableHeaderCategories} />
       {modalCategories && <ModalCategories />}
-      {categories === undefined || categories.length === 0 ? (
-        <div className={style.messageAddButton}>
-          <p className={style.message}>Нет добавленых элементов</p>
-        </div>
-      ) : null}
     </div>
   );
 };
