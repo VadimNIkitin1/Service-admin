@@ -22,7 +22,7 @@ const CategoriesPage = () => {
 
   useEffect(() => {
     dispatch(fetchCategories());
-  }, [modalCategories]);
+  }, []);
 
   return (
     <div className={style.page}>

@@ -1,49 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import {
-  MdOutlineMenuBook,
-  MdMessage,
-  MdAnalytics,
-  MdOutlineSettings,
-  MdPriceChange,
-  MdPeopleAlt,
-  MdStore,
-  MdList,
-} from "react-icons/md";
-
 const slice = createSlice({
   name: "menuElement",
   initialState: {
-    sideBarList: [
-      { name: "Магазины", link: "/shops", icon: <MdStore /> },
-      {
-        name: "Тарифы",
-        link: "/prices",
-        icon: <MdPriceChange />,
-      },
-      { name: "Категории", link: "/categories", icon: <MdList /> },
-      { name: "Меню", link: "/menu", icon: <MdOutlineMenuBook /> },
-      {
-        name: "Пользователи",
-        link: "/clients",
-        icon: <MdPeopleAlt />,
-      },
-      {
-        name: "Рассылки",
-        link: "/notification",
-        icon: <MdMessage />,
-      },
-      {
-        name: "Аналитика",
-        link: "/analytic",
-        icon: <MdAnalytics />,
-      },
-      {
-        name: "Настройки",
-        link: "/settings",
-        icon: <MdOutlineSettings />,
-      },
-    ],
     tableHeaderCategories: [
       { name: "Наименование", code: "name_rus", type: "str" },
       { name: "В наличии", code: "availability", type: "checkbox" },
