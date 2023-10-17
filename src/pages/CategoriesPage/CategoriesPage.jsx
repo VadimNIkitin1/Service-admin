@@ -16,7 +16,7 @@ const CategoriesPage = () => {
 
   useEffect(() => {
     dispatch(fetchCategories());
-  }, []);
+  }, [dispatch]);
 
   const tableHeaderCategories = useSelector(
     (state) => state.menuElement.tableHeaderCategories

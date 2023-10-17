@@ -4,8 +4,9 @@ import style from "./ModalCategories.module.scss";
 import Button from "../../shared/Button/Button";
 import { useDispatch } from "react-redux";
 import { toggleModalCategories } from "../../store/activeSlice";
+import { addedCategory } from "../../store/categorySlice";
 
-const ModalCategories = ({ setModal }) => {
+const ModalCategories = () => {
   const dispatch = useDispatch();
   const {
     register,
@@ -16,8 +17,8 @@ const ModalCategories = ({ setModal }) => {
 
   const onSubmit = (data) => {
     console.log(data);
-    setModal(false);
-    reset();
+    dispatch(addedCategory(data));
+    dispatch(toggleModalCategories(false));
   };
 
   return (
@@ -33,12 +34,12 @@ const ModalCategories = ({ setModal }) => {
             <input
               type="text"
               className={style.modalInput}
-              {...register("name", {
+              {...register("name_rus", {
                 maxLength: { value: 20, message: "Не более 20 символов" },
               })}
             />
-            {errors.name && (
-              <p className={style.errorMsg}>{errors.name.message}</p>
+            {errors.name_rus && (
+              <p className={style.errorMsg}>{errors.name_rus.message}</p>
             )}
           </label>
           <Button view="add" type={"submit"}>
