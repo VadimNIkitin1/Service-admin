@@ -7,7 +7,7 @@ const Table = ({ data, tableHeader }) => {
   return (
     <>
       <TableHeader tableHeader={tableHeader} />
-      {data === undefined
+      {data === undefined || data.length === 0
         ? null
         : data.map((el) => {
             el["delete"] = () => {

@@ -3,12 +3,19 @@ import Button from "../../shared/Button/Button";
 import Table from "../../widgets/Table/Table";
 import style from "./CategoriesPage.module.scss";
 import { BsFillPlusSquareFill } from "react-icons/bs";
-import { categories } from "../../assets/db";
+// import { categories } from "../../assets/db";
 import { toggleModalCategories } from "../../store/activeSlice";
 import ModalCategories from "../../widgets/ModalCategories/ModalCategories";
+import { useEffect, useState } from "react";
+import { getCategories } from "../../app/api";
 
 const CategoriesPage = () => {
+  const [categories, setCategories] = useState([]);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setCategories(getCategories());
+  }, []);
 
   const tableHeaderCategories = useSelector(
     (state) => state.menuElement.tableHeaderCategories
