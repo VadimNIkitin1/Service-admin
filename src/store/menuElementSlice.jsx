@@ -45,7 +45,7 @@ const slice = createSlice({
       },
     ],
     tableHeaderCategories: [
-      { name: "Наименование", code: "name", type: "str" },
+      { name: "Наименование", code: "name_rus", type: "str" },
       { name: "В наличии", code: "availability", type: "checkbox" },
     ],
     tableHeaderMenu: [
