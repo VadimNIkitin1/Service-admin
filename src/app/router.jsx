@@ -107,12 +107,12 @@ const router = createBrowserRouter(
         errorElement={<ErrorPage />}
       />
       <Route
-        path={"auth"}
+        path={"/auth"}
         element={<AuthPage />}
         errorElement={<ErrorPage />}
       />
       <Route
-        path={"login"}
+        path={"/login"}
         element={<LoginPage />}
         errorElement={<ErrorPage />}
       />
