@@ -17,8 +17,6 @@ const CategoriesPage = () => {
     setCategories(getCategories());
   }, []);
 
-  console.log(categories);
-
   const tableHeaderCategories = useSelector(
     (state) => state.menuElement.tableHeaderCategories
   );
