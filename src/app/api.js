@@ -24,3 +24,12 @@ export const addCategory = async (data) => {
     console.log(error);
   }
 };
+
+export const deleteCategory = async (id) => {
+  try {
+    const res = await axios.delete(`category/?category_id=${id}`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

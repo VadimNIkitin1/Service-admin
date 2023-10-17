@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getCategories, addCategory } from "../app/api";
+import { getCategories, addCategory, deleteCategory } from "../app/api";
 
 export const fetchCategories = createAsyncThunk(
   "categories/fetchCategories",
@@ -12,6 +12,13 @@ export const addedCategory = createAsyncThunk(
   "categories/addedCategory",
   async (data) => {
     return await addCategory(data);
+  }
+);
+
+export const decreaseCategory = createAsyncThunk(
+  "categories/decreaseCategory",
+  async (id) => {
+    return await deleteCategory(id);
   }
 );
 
@@ -41,6 +48,14 @@ const slice = createSlice({
         state.error = null;
       })
       .addCase(addedCategory.fulfilled, (state) => {
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(decreaseCategory.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(decreaseCategory.fulfilled, (state) => {
         state.loading = false;
         state.error = null;
       })

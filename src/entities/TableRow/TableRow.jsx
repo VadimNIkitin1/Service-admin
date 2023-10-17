@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { MdOutlineEditCalendar, MdDeleteForever } from "react-icons/md";
 
@@ -7,8 +7,10 @@ import Button from "../../shared/Button/Button";
 
 import clsx from "clsx";
 import style from "./TableRow.module.scss";
+import { decreaseCategory } from "../../store/categorySlice";
 
 const TableRow = ({ el, tableHeader }) => {
+  const dispatch = useDispatch();
   const location = useLocation();
   const theme = useSelector((state) => state.activeTab.theme);
   const company_id = useSelector((state) => state.auth.company_id);
@@ -40,7 +42,10 @@ const TableRow = ({ el, tableHeader }) => {
           <Button view="edit">
             <MdOutlineEditCalendar />
           </Button>
-          <Button view="delete">
+          <Button
+            view="delete"
+            onClick={() => dispatch(decreaseCategory(el.id))}
+          >
             <MdDeleteForever />
           </Button>
         </>
