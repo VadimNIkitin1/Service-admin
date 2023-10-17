@@ -11,11 +11,13 @@ import { toggleAuth } from "../../store/authSlice";
 const NavBar = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.activeTab.theme);
+  const company_id = useSelector((state) => state.auth.company_id);
+
   return (
     <nav className={clsx(style.navbar, theme && style.light)}>
       <Link
-        to={"/:companies_id/menu"}
-        onClick={() => dispatch(toggleTabs("/:companies_id/menu"))}
+        to={`/${company_id}/menu`}
+        onClick={() => dispatch(toggleTabs(`/${company_id}/menu`))}
         className={clsx(style.logoText, theme && style.light)}
       >
         ENVELOPE <GiEnvelope className={style.logo} />
