@@ -12,8 +12,8 @@ const Table = ({ data, tableHeader }) => {
           <p className={style.message}>Нет добавленых элементов</p>
         </div>
       ) : (
-        data.map((el) => (
-          <TableRow key={el.name_rus} el={el} tableHeader={tableHeader} />
+        data.map((cell) => (
+          <TableRow key={cell.name} cell={cell} tableHeader={tableHeader} />
         ))
       )}
     </>

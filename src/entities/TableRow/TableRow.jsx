@@ -9,7 +9,7 @@ import Button from "../../shared/Button/Button";
 import clsx from "clsx";
 import style from "./TableRow.module.scss";
 
-const TableRow = ({ el, tableHeader }) => {
+const TableRow = ({ cell, tableHeader }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const theme = useSelector((state) => state.activeTab.theme);
@@ -22,20 +22,20 @@ const TableRow = ({ el, tableHeader }) => {
 
   return (
     <div className={clsx(style.tableRow, theme && style.light)}>
-      {tableHeader.map((i) => {
-        switch (i.type) {
+      {tableHeader.map((column) => {
+        switch (column.type) {
           case "checkbox":
             return (
               <Checkbox
-                key={i.name}
-                checked={el[i.code]}
+                key={column.name}
+                checked={cell[column.code]}
                 className={style.tableColumn}
               />
             );
           default:
             return (
-              <p key={i.name} className={style.tableColumn}>
-                {el[i.code]}
+              <p key={column.name} className={style.tableColumn}>
+                {cell[column.code]}
               </p>
             );
             break;
@@ -46,7 +46,7 @@ const TableRow = ({ el, tableHeader }) => {
           <Button view="edit">
             <MdOutlineEditCalendar />
           </Button>
-          <Button view="delete" onClick={() => deleteCategory(el.id)}>
+          <Button view="delete" onClick={() => deleteCategory(cell.id)}>
             <MdDeleteForever />
           </Button>
         </>
