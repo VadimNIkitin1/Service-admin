@@ -7,7 +7,7 @@ import InputFile from "../../shared/InputFile/InputFile";
 import Button from "../../shared/Button/Button";
 
 import style from "./ModalProducts.module.scss";
-import { addedProduct } from "../../store/productSlice";
+import { addedProduct, incrementProduct } from "../../store/productSlice";
 import Checkbox from "../../shared/Checkbox/Checkbox";
 import { useEffect, useState } from "react";
 import { fetchCategories } from "../../store/categorySlice";
@@ -45,6 +45,7 @@ const ModalProducts = () => {
     };
 
     dispatch(addedProduct(requestData));
+    dispatch(incrementProduct());
     dispatch(toggleModalProducts(false));
     reset();
   };

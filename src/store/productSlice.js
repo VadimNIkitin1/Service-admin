@@ -33,10 +33,10 @@ const slice = createSlice({
     quantity: 0,
   },
   reducers: {
-    increment(state) {
+    incrementProduct(state) {
       state.quantity = state.quantity + 1;
     },
-    decrement(state) {
+    decrementProduct(state) {
       state.quantity = state.quantity - 1;
     },
   },
@@ -74,6 +74,6 @@ const slice = createSlice({
   },
 });
 
-export const { increment, decrement } = slice.actions;
+export const { incrementProduct, decrementProduct } = slice.actions;
 
 export default slice.reducer;

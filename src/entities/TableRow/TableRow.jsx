@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { MdOutlineEditCalendar, MdDeleteForever } from "react-icons/md";
-import { decreaseCategory, decrement } from "../../store/categorySlice";
+import { decreaseCategory, decrementCategory } from "../../store/categorySlice";
+import { decreaseProduct, decrementProduct } from "../../store/productSlice";
 
 import Checkbox from "../../shared/Checkbox/Checkbox";
 import Button from "../../shared/Button/Button";
@@ -17,7 +18,12 @@ const TableRow = ({ cell, tableHeader }) => {
 
   const deleteCategory = (id) => {
     dispatch(decreaseCategory(id));
-    dispatch(decrement());
+    dispatch(decrementCategory());
+  };
+
+  const deleteProduct = (id) => {
+    dispatch(decreaseProduct(id));
+    dispatch(decrementProduct());
   };
 
   return (
@@ -56,7 +62,7 @@ const TableRow = ({ cell, tableHeader }) => {
           <Button view="edit">
             <MdOutlineEditCalendar />
           </Button>
-          <Button view="delete">
+          <Button view="delete" onClick={() => deleteProduct(cell.id)}>
             <MdDeleteForever />
           </Button>
         </>

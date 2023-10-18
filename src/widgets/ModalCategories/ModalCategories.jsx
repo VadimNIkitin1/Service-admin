@@ -4,7 +4,7 @@ import style from "./ModalCategories.module.scss";
 import Button from "../../shared/Button/Button";
 import { useDispatch } from "react-redux";
 import { toggleModalCategories } from "../../store/activeSlice";
-import { addedCategory, increment } from "../../store/categorySlice";
+import { addedCategory, incrementCategory } from "../../store/categorySlice";
 
 const ModalCategories = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const ModalCategories = () => {
 
   const onSubmit = (data) => {
     dispatch(addedCategory(data));
-    dispatch(increment());
+    dispatch(incrementCategory());
     dispatch(toggleModalCategories(false));
   };
 
