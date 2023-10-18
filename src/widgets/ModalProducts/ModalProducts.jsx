@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { categories } from "../../assets/db";
 
 import style from "./ModalProducts.module.scss";
 import InputFile from "../../shared/InputFile/InputFile";
@@ -7,7 +6,7 @@ import Button from "../../shared/Button/Button";
 import { useDispatch } from "react-redux";
 import { toggleModalProducts } from "../../store/activeSlice";
 
-const ModalProducts = ({ setModal }) => {
+const ModalProducts = () => {
   const dispatch = useDispatch();
   const {
     register,

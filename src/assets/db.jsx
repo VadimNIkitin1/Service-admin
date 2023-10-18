@@ -8,14 +8,6 @@ export const storeCard = [
 
 export const prices = ["2990", "8490", "16990", "29990"];
 
-export const categories = [
-  { name: "Пицца" },
-  { name: "Роллы" },
-  { name: "Салаты" },
-  { name: "Морепродукты" },
-  { name: "BBQ" },
-];
-
 export const products = [
   {
     name: "Цезарь",

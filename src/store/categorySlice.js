@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getCategories, addCategory, deleteCategory } from "../app/api";
-import { categories } from "../assets/db";
 
 export const fetchCategories = createAsyncThunk(
   "categories/fetchCategories",
@@ -31,7 +30,7 @@ const slice = createSlice({
   name: "categories",
   initialState: {
     categories: [],
-    quantity: categories.length,
+    quantity: 0,
   },
   reducers: {
     increment(state) {
