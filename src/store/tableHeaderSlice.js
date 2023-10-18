@@ -17,7 +17,6 @@ const slice = createSlice({
       { name: "Доставка", code: "delivery", type: "checkbox" },
       { name: "Зал", code: "dinein", type: "checkbox" },
     ],
-
     tableHeaderClients: [
       { name: "User Name", code: "name", type: "str" },
       { name: "User ID", code: "userId", type: "str" },

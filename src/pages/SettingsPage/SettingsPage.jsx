@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const SettingsPage = () => {
   const tableHeaderSettings = useSelector(
-    (state) => state.menuElement.tableHeaderSettings
+    (state) => state.tableHeader.tableHeaderSettings
   );
   return (
     <div className={style.SettingsPage}>

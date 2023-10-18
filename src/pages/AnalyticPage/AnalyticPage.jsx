@@ -5,7 +5,7 @@ import style from "./AnalyticPage.module.scss";
 
 const AnalyticPage = () => {
   const tableHeaderAnalytic = useSelector(
-    (state) => state.menuElement.tableHeaderAnalytic
+    (state) => state.tableHeader.tableHeaderAnalytic
   );
   return (
     <div className={style.AnalyticPage}>

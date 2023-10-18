@@ -5,7 +5,7 @@ import style from "./ClientsPage.module.scss";
 
 const ClientsPage = () => {
   const tableHeaderClients = useSelector(
-    (state) => state.menuElement.tableHeaderClients
+    (state) => state.tableHeader.tableHeaderClients
   );
   return (
     <div className={style.ClientsPage}>
