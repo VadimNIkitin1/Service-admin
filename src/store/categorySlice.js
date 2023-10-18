@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getCategories, addCategory, deleteCategory } from "../app/api";
+import { categories } from "../assets/db";
 
 export const fetchCategories = createAsyncThunk(
   "categories/fetchCategories",
@@ -30,8 +31,16 @@ const slice = createSlice({
   name: "categories",
   initialState: {
     categories: [],
+    quantity: categories.length,
   },
-  reducers: {},
+  reducers: {
+    increment(state) {
+      state.quantity = state.quantity + 1;
+    },
+    decrement(state) {
+      state.quantity = state.quantity - 1;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCategories.pending, (state) => {
@@ -65,5 +74,7 @@ const slice = createSlice({
       });
   },
 });
+
+export const { increment, decrement } = slice.actions;
 
 export default slice.reducer;

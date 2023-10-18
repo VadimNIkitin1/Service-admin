@@ -12,19 +12,9 @@ const Table = ({ data, tableHeader }) => {
           <p className={style.message}>Нет добавленых элементов</p>
         </div>
       ) : (
-        data.map((el) => {
-          // el["delete"] = () => {
-          //   console.log(`delete product-${el.name}`);
-          // };
-          // data.map((el) => {
-          //   el["edit"] = () => {
-          //     console.log(`edit product-${el.name}`);
-          //   };
-          // });
-          return (
-            <TableRow key={el.name_rus} el={el} tableHeader={tableHeader} />
-          );
-        })
+        data.map((el) => (
+          <TableRow key={el.name_rus} el={el} tableHeader={tableHeader} />
+        ))
       )}
     </>
   );

@@ -10,6 +10,7 @@ import { fetchCategories } from "../../store/categorySlice";
 
 const CategoriesPage = () => {
   const categories = useSelector((state) => state.categories.categories);
+  const quantity = useSelector((state) => state.categories.quantity);
   const dispatch = useDispatch();
 
   const modalCategories = useSelector(
@@ -21,8 +22,10 @@ const CategoriesPage = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchCategories());
-  }, []);
+    setTimeout(() => {
+      dispatch(fetchCategories());
+    }, 100);
+  }, [quantity]);
 
   return (
     <div className={style.page}>
