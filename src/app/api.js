@@ -33,3 +33,34 @@ export const deleteCategory = async (id) => {
     console.log(error);
   }
 };
+
+export const getProducts = async () => {
+  try {
+    const res = await axios.get(`product/`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const addProduct = async (data) => {
+  try {
+    const res = await axios.post(`product/`, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteProduct = async (id) => {
+  try {
+    const res = await axios.delete(`product/?product_id=${id}`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

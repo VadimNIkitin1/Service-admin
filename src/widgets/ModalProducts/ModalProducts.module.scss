@@ -134,3 +134,46 @@ input::-webkit-inner-spin-button {
   background-color: $violet;
   border-radius: 10px;
 }
+
+.labelCheckbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerCheckbox {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 40px;
+}
+
+.containerCheckbox input {
+  display: none;
+}
+
+.containerCheckbox svg {
+  overflow: visible;
+}
+
+.path {
+  fill: none;
+  stroke: white;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+  stroke-dasharray: 241 9999999;
+  stroke-dashoffset: 0;
+  &.light {
+    stroke: #000;
+  }
+}
+
+.checked {
+  stroke: $green;
+}
+
+.containerCheckbox input:checked ~ svg .path {
+  stroke-dasharray: 70.5096664428711 9999999;
+  stroke-dashoffset: -262.2723388671875;
+}

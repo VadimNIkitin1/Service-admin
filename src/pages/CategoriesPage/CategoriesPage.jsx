@@ -1,12 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
-import Button from "../../shared/Button/Button";
-import Table from "../../widgets/Table/Table";
-import style from "./CategoriesPage.module.scss";
-import { BsFillPlusSquareFill } from "react-icons/bs";
-import { toggleModalCategories } from "../../store/activeSlice";
-import ModalCategories from "../../widgets/ModalCategories/ModalCategories";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { BsFillPlusSquareFill } from "react-icons/bs";
+
 import { fetchCategories } from "../../store/categorySlice";
+import { toggleModalCategories } from "../../store/activeSlice";
+
+import Button from "../../shared/Button/Button";
+import ModalCategories from "../../widgets/ModalCategories/ModalCategories";
+
+import Table from "../../widgets/Table/Table";
+
+import style from "./CategoriesPage.module.scss";
 
 const CategoriesPage = () => {
   const categories = useSelector((state) => state.categories.categories);
@@ -18,7 +22,7 @@ const CategoriesPage = () => {
   );
 
   const tableHeaderCategories = useSelector(
-    (state) => state.menuElement.tableHeaderCategories
+    (state) => state.tableHeader.tableHeaderCategories
   );
 
   useEffect(() => {

@@ -1,23 +1,31 @@
-import Table from "../../widgets/Table/Table";
-import { products } from "../../assets/db";
-import ModalProducts from "../../widgets/ModalProducts/ModalProducts";
-import Button from "../../shared/Button/Button";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 
-import style from "./MenuPage.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-
 import { toggleModalProducts } from "../../store/activeSlice";
+import { fetchProducts } from "../../store/productSlice";
+
+import Table from "../../widgets/Table/Table";
+import ModalProducts from "../../widgets/ModalProducts/ModalProducts";
+
+import Button from "../../shared/Button/Button";
+
+import style from "./MenuPage.module.scss";
 
 const MenuPage = () => {
   const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.products);
+  const quantity = useSelector((state) => state.products.quantity);
   const modalProducts = useSelector((state) => state.activeTab.modalProducts);
-
   const tableHeaderMenu = useSelector(
-    (state) => state.menuElement.tableHeaderMenu
+    (state) => state.tableHeader.tableHeaderMenu
   );
 
-  // const products = undefined;
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(fetchProducts());
+    }, 100);
+  }, [quantity]);
 
   return (
     <div className={style.MenuPage}>
@@ -31,11 +39,6 @@ const MenuPage = () => {
       </div>
       <Table data={products} tableHeader={tableHeaderMenu} />
       {modalProducts && <ModalProducts />}
-      {products === undefined || products.length === 0 ? (
-        <div className={style.messageAddButton}>
-          <p className={style.message}>Нет добавленых элементов</p>
-        </div>
-      ) : null}
     </div>
   );
 };
