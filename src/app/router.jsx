@@ -96,6 +96,11 @@ const router = createBrowserRouter(
           }
           errorElement={<ErrorPage />}
         />
+        <Route
+          path={"*"}
+          element={<NotFoundPage />}
+          errorElement={<ErrorPage />}
+        />
       </Route>
       <Route
         path={"/about"}
@@ -112,8 +117,6 @@ const router = createBrowserRouter(
         element={<LoginPage />}
         errorElement={<ErrorPage />}
       />
-
-      <Route path="*" element={<NotFoundPage />} />
     </>
   )
 );
