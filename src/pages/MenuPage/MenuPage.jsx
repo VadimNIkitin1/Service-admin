@@ -7,6 +7,7 @@ import { fetchProducts } from "../../store/productSlice";
 
 import Table from "../../widgets/Table/Table";
 import ModalProducts from "../../widgets/ModalProducts/ModalProducts";
+import ModalEditProducts from "../../widgets/ModalEditProducts/ModalEditProducts";
 
 import Button from "../../shared/Button/Button";
 
@@ -17,6 +18,9 @@ const MenuPage = () => {
   const products = useSelector((state) => state.products.products);
   const quantity = useSelector((state) => state.products.quantity);
   const modalProducts = useSelector((state) => state.activeTab.modalProducts);
+  const modalEditProducts = useSelector(
+    (state) => state.activeTab.modalEditProducts
+  );
   const tableHeaderMenu = useSelector(
     (state) => state.tableHeader.tableHeaderMenu
   );
@@ -39,6 +43,7 @@ const MenuPage = () => {
       </div>
       <Table data={products} tableHeader={tableHeaderMenu} />
       {modalProducts && <ModalProducts />}
+      {modalEditProducts && <ModalEditProducts />}
     </div>
   );
 };

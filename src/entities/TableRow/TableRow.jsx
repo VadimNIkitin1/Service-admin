@@ -1,8 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineEditCalendar, MdDeleteForever } from "react-icons/md";
+
 import { decreaseCategory, decrementCategory } from "../../store/categorySlice";
 import { decreaseProduct, decrementProduct } from "../../store/productSlice";
+import {
+  toggleModalEditCategories,
+  toggleModalEditProducts,
+} from "../../store/activeSlice";
 
 import Checkbox from "../../shared/Checkbox/Checkbox";
 import Button from "../../shared/Button/Button";
@@ -49,7 +54,10 @@ const TableRow = ({ cell, tableHeader }) => {
       })}
       {location.pathname === `/${company_id}/categories` ? (
         <>
-          <Button view="edit">
+          <Button
+            view="edit"
+            onClick={() => dispatch(toggleModalEditCategories(true))}
+          >
             <MdOutlineEditCalendar />
           </Button>
           <Button view="delete" onClick={() => deleteCategory(cell.id)}>
@@ -59,7 +67,10 @@ const TableRow = ({ cell, tableHeader }) => {
       ) : null}
       {location.pathname === `/${company_id}/menu` ? (
         <>
-          <Button view="edit">
+          <Button
+            view="edit"
+            onClick={() => dispatch(toggleModalEditProducts(true))}
+          >
             <MdOutlineEditCalendar />
           </Button>
           <Button view="delete" onClick={() => deleteProduct(cell.id)}>

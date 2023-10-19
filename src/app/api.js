@@ -2,6 +2,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://swarovskidmitrii.ru/api/v1/";
 axios.defaults.withCredentials = true;
+axios.defaults.headers["Content-Type"] = "application/json";
 
 export const getCategories = async () => {
   try {
@@ -14,11 +15,16 @@ export const getCategories = async () => {
 
 export const addCategory = async (data) => {
   try {
-    const res = await axios.post(`category/`, data, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await axios.post(`category/`, data);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editCategory = async (data, id) => {
+  try {
+    const res = await axios.put(`category/?category_id=${id}`, data);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -59,6 +65,15 @@ export const addProduct = async (data) => {
 export const deleteProduct = async (id) => {
   try {
     const res = await axios.delete(`product/?product_id=${id}`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editProduct = async (data, id) => {
+  try {
+    const res = await axios.put(`product/?product_id=${id}`, data);
     return res.data;
   } catch (error) {
     console.log(error);

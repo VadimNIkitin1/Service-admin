@@ -7,6 +7,8 @@ const slice = createSlice({
     theme: false,
     modalProducts: false,
     modalCategories: false,
+    modalEditCategories: false,
+    modalEditProducts: false,
   },
   reducers: {
     toggleTabs(state, action) {
@@ -21,6 +23,12 @@ const slice = createSlice({
     toggleModalCategories(state, action) {
       state.modalCategories = action.payload;
     },
+    toggleModalEditCategories(state, action) {
+      state.modalEditCategories = action.payload;
+    },
+    toggleModalEditProducts(state, action) {
+      state.modalEditProducts = action.payload;
+    },
   },
 });
 
@@ -29,6 +37,8 @@ export const {
   toggleTheme,
   toggleModalProducts,
   toggleModalCategories,
+  toggleModalEditCategories,
+  toggleModalEditProducts,
 } = slice.actions;
 
 export default slice.reducer;
