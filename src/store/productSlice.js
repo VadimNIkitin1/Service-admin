@@ -22,8 +22,8 @@ export const addedProduct = createAsyncThunk(
 
 export const editedProduct = createAsyncThunk(
   "products/editedProduct",
-  async (data, id) => {
-    return await editProduct(data, id);
+  async (data) => {
+    return await editProduct(data);
   }
 );
 
@@ -42,6 +42,7 @@ const slice = createSlice({
   name: "products",
   initialState: {
     products: [],
+    product: null,
     quantity: 0,
   },
   reducers: {
@@ -50,6 +51,9 @@ const slice = createSlice({
     },
     decrementProduct(state) {
       state.quantity = state.quantity - 1;
+    },
+    saveProduct(state, action) {
+      state.product = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -86,6 +90,7 @@ const slice = createSlice({
   },
 });
 
-export const { incrementProduct, decrementProduct } = slice.actions;
+export const { incrementProduct, decrementProduct, saveProduct } =
+  slice.actions;
 
 export default slice.reducer;

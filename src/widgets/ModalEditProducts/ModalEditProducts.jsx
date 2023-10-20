@@ -7,7 +7,11 @@ import InputFile from "../../shared/InputFile/InputFile";
 import Button from "../../shared/Button/Button";
 
 import style from "./ModalEditProducts.module.scss";
-import { addedProduct, incrementProduct } from "../../store/productSlice";
+import {
+  addedProduct,
+  editedProduct,
+  incrementProduct,
+} from "../../store/productSlice";
 import Checkbox from "../../shared/Checkbox/Checkbox";
 import { useEffect, useState } from "react";
 import { fetchCategories } from "../../store/categorySlice";
@@ -17,6 +21,18 @@ const ModalEditProducts = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.categories);
   const theme = useSelector((state) => state.activeTab.theme);
+  const product = useSelector((state) => state.products.product);
+  const {
+    name_rus,
+    price,
+    id,
+    delivery,
+    availability,
+    dinein,
+    popular,
+    takeaway,
+    category_id,
+  } = product;
 
   useEffect(() => {
     dispatch(fetchCategories());
@@ -25,18 +41,27 @@ const ModalEditProducts = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
-  } = useForm({ mode: "onBlur" });
+  } = useForm({
+    mode: "onBlur",
+    defaultValues: {
+      name_rus: name_rus,
+      price: price,
+      popular: popular,
+      availability: availability,
+      dinein: dinein,
+      delivery: delivery,
+      takeaway: takeaway,
+    },
+  });
 
   const onSubmit = (data) => {
     const requestData = {
-      category_id: Number(data.category_id),
+      id,
       name_rus: data.name_rus,
+      category_id: Number(data.category_id),
       description_rus: data.description_rus,
       price: Number(data.price),
-      unit: Number(data.unit),
-      wt: Number(data.wt),
       availability: data.availability,
       popular: data.popular,
       delivery: data.delivery,
@@ -44,10 +69,9 @@ const ModalEditProducts = () => {
       dinein: data.dinein,
     };
 
-    dispatch(addedProduct(requestData));
+    dispatch(editedProduct(requestData));
     dispatch(incrementProduct());
     dispatch(toggleModalEditProducts(false));
-    reset();
   };
 
   return (

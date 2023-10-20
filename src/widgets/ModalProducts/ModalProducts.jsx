@@ -44,6 +44,8 @@ const ModalProducts = () => {
       dinein: data.dinein,
     };
 
+    console.log(requestData);
+
     dispatch(addedProduct(requestData));
     dispatch(incrementProduct());
     dispatch(toggleModalProducts(false));
@@ -161,9 +163,7 @@ const ModalProducts = () => {
                     className={style.modalSelect}
                   >
                     <option value="1">Шт.</option>
-                    <option value="2">Гр.</option>
-                    <option value="3">Кг.</option>
-                    <option value="4">Порц.</option>
+                    <option value="2">Порц.</option>
                   </select>
                 </div>
                 {errors.weight && (

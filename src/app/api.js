@@ -71,9 +71,10 @@ export const deleteProduct = async (id) => {
   }
 };
 
-export const editProduct = async (data, id) => {
+export const editProduct = async (data) => {
+  console.log(data);
   try {
-    const res = await axios.put(`product/?product_id=${id}`, data);
+    const res = await axios.put(`product/?product_id=${data.id}`, data);
     return res.data;
   } catch (error) {
     console.log(error);

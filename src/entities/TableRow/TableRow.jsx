@@ -7,7 +7,11 @@ import {
   decrementCategory,
   saveCategory,
 } from "../../store/categorySlice";
-import { decreaseProduct, decrementProduct } from "../../store/productSlice";
+import {
+  decreaseProduct,
+  decrementProduct,
+  saveProduct,
+} from "../../store/productSlice";
 import {
   toggleModalEditCategories,
   toggleModalEditProducts,
@@ -38,6 +42,11 @@ const TableRow = ({ cell, tableHeader }) => {
   const handleEditCategory = (name) => {
     dispatch(saveCategory(name));
     dispatch(toggleModalEditCategories(true));
+  };
+
+  const handleEditProduct = (name) => {
+    dispatch(saveProduct(name));
+    dispatch(toggleModalEditProducts(true));
   };
 
   return (
@@ -73,10 +82,7 @@ const TableRow = ({ cell, tableHeader }) => {
       ) : null}
       {location.pathname === `/${company_id}/menu` ? (
         <>
-          <Button
-            view="edit"
-            onClick={() => dispatch(toggleModalEditProducts(true))}
-          >
+          <Button view="edit" onClick={() => handleEditProduct(cell)}>
             <MdOutlineEditCalendar />
           </Button>
           <Button view="delete" onClick={() => deleteProduct(cell.id)}>
