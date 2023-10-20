@@ -243,7 +243,7 @@ const ModalProducts = () => {
               </label> */}
             </div>
           </div>
-          <Button view="add" onClick={() => handleSubmit(onSubmit)}>
+          <Button view="add" type={"submit"}>
             Добавить
           </Button>
           <Button

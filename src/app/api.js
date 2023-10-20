@@ -51,11 +51,7 @@ export const getProducts = async () => {
 
 export const addProduct = async (data) => {
   try {
-    const res = await axios.post(`product/`, data, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await axios.post(`product/`, data);
     return res.data;
   } catch (error) {
     console.log(error);

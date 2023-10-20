@@ -1,20 +1,17 @@
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
 import { toggleModalEditProducts } from "../../store/activeSlice";
+import { fetchCategories } from "../../store/categorySlice";
+import { editedProduct, incrementProduct } from "../../store/productSlice";
 
 import InputFile from "../../shared/InputFile/InputFile";
 import Button from "../../shared/Button/Button";
+import Checkbox from "../../shared/Checkbox/Checkbox";
 
 import style from "./ModalEditProducts.module.scss";
-import {
-  addedProduct,
-  editedProduct,
-  incrementProduct,
-} from "../../store/productSlice";
-import Checkbox from "../../shared/Checkbox/Checkbox";
-import { useEffect, useState } from "react";
-import { fetchCategories } from "../../store/categorySlice";
+
 import clsx from "clsx";
 
 const ModalEditProducts = () => {
@@ -137,25 +134,25 @@ const ModalEditProducts = () => {
                   placeholder="Ккал"
                   type="number"
                   className={style.modalInputSmall}
-                  {...register("calories", { required: true })}
+                  {...register("calories")}
                 />
                 <input
                   placeholder="Белки"
                   type="number"
                   className={style.modalInputSmall}
-                  {...register("protein", { required: true })}
+                  {...register("protein")}
                 />
                 <input
                   placeholder="Жиры"
                   type="number"
                   className={style.modalInputSmall}
-                  {...register("fat", { required: true })}
+                  {...register("fat")}
                 />
                 <input
                   placeholder="Углеводы"
                   type="number"
                   className={style.modalInputSmall}
-                  {...register("carbohydrates", { required: true })}
+                  {...register("carbohydrates")}
                 />
               </div>
               <label className={style.modalLabel}>
@@ -185,9 +182,7 @@ const ModalEditProducts = () => {
                     className={style.modalSelect}
                   >
                     <option value="1">Шт.</option>
-                    <option value="2">Гр.</option>
-                    <option value="3">Кг.</option>
-                    <option value="4">Порц.</option>
+                    <option value="2">Порц.</option>
                   </select>
                 </div>
                 {errors.weight && (
@@ -267,7 +262,7 @@ const ModalEditProducts = () => {
               </label> */}
             </div>
           </div>
-          <Button view="add" onClick={() => handleSubmit(onSubmit)}>
+          <Button view="add" type={"submit"}>
             Добавить
           </Button>
           <Button
