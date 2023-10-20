@@ -22,9 +22,9 @@ export const addCategory = async (data) => {
   }
 };
 
-export const editCategory = async (data, id) => {
+export const editCategory = async (data) => {
   try {
-    const res = await axios.put(`category/?category_id=${id}`, data);
+    const res = await axios.put(`category/?category_id=${data.id}`, data);
     return res.data;
   } catch (error) {
     console.log(error);

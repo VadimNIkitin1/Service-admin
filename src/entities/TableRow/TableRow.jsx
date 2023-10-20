@@ -2,7 +2,11 @@ import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineEditCalendar, MdDeleteForever } from "react-icons/md";
 
-import { decreaseCategory, decrementCategory } from "../../store/categorySlice";
+import {
+  decreaseCategory,
+  decrementCategory,
+  saveCategory,
+} from "../../store/categorySlice";
 import { decreaseProduct, decrementProduct } from "../../store/productSlice";
 import {
   toggleModalEditCategories,
@@ -31,6 +35,11 @@ const TableRow = ({ cell, tableHeader }) => {
     dispatch(decrementProduct());
   };
 
+  const handleEditCategory = (name) => {
+    dispatch(saveCategory(name));
+    dispatch(toggleModalEditCategories(true));
+  };
+
   return (
     <div className={clsx(style.tableRow, theme && style.light)}>
       {tableHeader.map((column) => {
@@ -54,10 +63,7 @@ const TableRow = ({ cell, tableHeader }) => {
       })}
       {location.pathname === `/${company_id}/categories` ? (
         <>
-          <Button
-            view="edit"
-            onClick={() => dispatch(toggleModalEditCategories(true))}
-          >
+          <Button view="edit" onClick={() => handleEditCategory(cell)}>
             <MdOutlineEditCalendar />
           </Button>
           <Button view="delete" onClick={() => deleteCategory(cell.id)}>

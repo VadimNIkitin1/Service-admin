@@ -56,7 +56,7 @@ const ModalEditProducts = () => {
       onClick={() => dispatch(toggleModalEditProducts(false))}
     >
       <div className={style.container} onClick={(e) => e.stopPropagation()}>
-        <h1 className={style.modalTitle}>Добавить продукт</h1>
+        <h1 className={style.modalTitle}>Редактирование</h1>
         <form className={style.modalForm} onSubmit={handleSubmit(onSubmit)}>
           <div
             style={{

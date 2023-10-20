@@ -2,20 +2,27 @@ import { useForm } from "react-hook-form";
 
 import style from "./ModalEditCategories.module.scss";
 import Button from "../../shared/Button/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleModalEditCategories } from "../../store/activeSlice";
 import { editedCategory, incrementCategory } from "../../store/categorySlice";
 
 const ModalEditCategories = () => {
+  const category = useSelector((state) => state.categories.category);
+  const { name_rus, id } = category;
+
   const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: "onBlur" });
+  } = useForm({ mode: "onBlur", defaultValues: { name_rus: name_rus } });
 
   const onSubmit = (data) => {
-    dispatch(editedCategory(data));
+    const requestData = {
+      name_rus: data.name_rus,
+      id,
+    };
+    dispatch(editedCategory(requestData));
     dispatch(incrementCategory());
     dispatch(toggleModalEditCategories(false));
   };

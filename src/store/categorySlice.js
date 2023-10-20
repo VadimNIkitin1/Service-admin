@@ -22,8 +22,8 @@ export const addedCategory = createAsyncThunk(
 
 export const editedCategory = createAsyncThunk(
   "categories/editedCategory",
-  async (data, id) => {
-    return await editCategory(data, id);
+  async (data) => {
+    return await editCategory(data);
   }
 );
 
@@ -42,6 +42,7 @@ const slice = createSlice({
   name: "categories",
   initialState: {
     categories: [],
+    category: null,
     quantity: 0,
   },
   reducers: {
@@ -50,6 +51,9 @@ const slice = createSlice({
     },
     decrementCategory(state) {
       state.quantity = state.quantity - 1;
+    },
+    saveCategory(state, action) {
+      state.category = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -94,6 +98,7 @@ const slice = createSlice({
   },
 });
 
-export const { incrementCategory, decrementCategory } = slice.actions;
+export const { incrementCategory, decrementCategory, saveCategory } =
+  slice.actions;
 
 export default slice.reducer;
