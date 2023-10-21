@@ -11,6 +11,7 @@ import {
   decreaseProduct,
   decrementProduct,
   saveProduct,
+  toggleCheckbox,
 } from "../../store/productSlice";
 import {
   toggleModalEditCategories,
@@ -49,6 +50,10 @@ const TableRow = ({ cell, tableHeader }) => {
     dispatch(toggleModalEditProducts(true));
   };
 
+  const handleCheckbox = (id, code) => {
+    dispatch(toggleCheckbox({ id, code }));
+  };
+
   return (
     <div className={clsx(style.tableRow, theme && style.light)}>
       {tableHeader.map((column) => {
@@ -59,6 +64,7 @@ const TableRow = ({ cell, tableHeader }) => {
                 key={column.name}
                 checked={cell[column.code]}
                 className={style.tableColumn}
+                onChange={() => handleCheckbox(cell.id, column.code)}
               />
             );
           default:

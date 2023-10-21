@@ -4,6 +4,7 @@ import {
   addProduct,
   deleteProduct,
   editProduct,
+  toggleProduct,
 } from "../app/api";
 
 export const fetchProducts = createAsyncThunk(
@@ -31,6 +32,13 @@ export const decreaseProduct = createAsyncThunk(
   "products/decreaseProduct",
   async (id) => {
     return await deleteProduct(id);
+  }
+);
+
+export const toggleCheckbox = createAsyncThunk(
+  "products/toggleCheckbox",
+  async (data) => {
+    return await toggleProduct(data);
   }
 );
 
@@ -80,6 +88,14 @@ const slice = createSlice({
         state.error = null;
       })
       .addCase(decreaseProduct.fulfilled, (state) => {
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(toggleCheckbox.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(toggleCheckbox.fulfilled, (state) => {
         state.loading = false;
         state.error = null;
       })

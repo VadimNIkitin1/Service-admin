@@ -13,7 +13,7 @@ const Table = ({ data, tableHeader }) => {
         </div>
       ) : (
         data.map((cell) => (
-          <TableRow key={cell.name} cell={cell} tableHeader={tableHeader} />
+          <TableRow key={cell.name_rus} cell={cell} tableHeader={tableHeader} />
         ))
       )}
     </>
