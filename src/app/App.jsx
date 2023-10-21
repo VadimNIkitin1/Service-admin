@@ -5,7 +5,7 @@ import clsx from "clsx";
 import style from "./App.module.scss";
 
 function App() {
-  const theme = useSelector((state) => state.activeTab.theme);
+  const theme = useSelector((state) => state.active.theme);
 
   return (
     <div className={clsx(style.App, theme && style.light)}>

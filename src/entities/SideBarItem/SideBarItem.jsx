@@ -6,8 +6,8 @@ import clsx from "clsx";
 
 const SideBarItem = ({ item }) => {
   const dispatch = useDispatch();
-  const activeTab = useSelector((state) => state.activeTab.active);
-  const theme = useSelector((state) => state.activeTab.theme);
+  const activeTab = useSelector((state) => state.active.active);
+  const theme = useSelector((state) => state.active.theme);
   const company_id = useSelector((state) => state.auth.company_id);
 
   const { name, link, icon } = item;

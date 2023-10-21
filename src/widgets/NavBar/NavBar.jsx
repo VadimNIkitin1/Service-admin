@@ -10,7 +10,7 @@ import { toggleAuth } from "../../store/authSlice";
 
 const NavBar = () => {
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.activeTab.theme);
+  const theme = useSelector((state) => state.active.theme);
   const company_id = useSelector((state) => state.auth.company_id);
 
   return (

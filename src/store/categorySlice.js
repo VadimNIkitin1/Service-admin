@@ -4,7 +4,8 @@ import {
   addCategory,
   deleteCategory,
   editCategory,
-} from "../app/api";
+  toggleCheckbox,
+} from "../api/categories";
 
 export const fetchCategories = createAsyncThunk(
   "categories/fetchCategories",
@@ -34,6 +35,13 @@ export const decreaseCategory = createAsyncThunk(
   }
 );
 
+export const toggleCheckboxCategory = createAsyncThunk(
+  "products/toggleCheckboxCategory",
+  async (data) => {
+    return await toggleCheckbox(data);
+  }
+);
+
 const isError = (action) => {
   return action.type.endsWith("rejected");
 };
@@ -46,12 +54,6 @@ const slice = createSlice({
     quantity: 0,
   },
   reducers: {
-    incrementCategory(state) {
-      state.quantity = state.quantity + 1;
-    },
-    decrementCategory(state) {
-      state.quantity = state.quantity - 1;
-    },
     saveCategory(state, action) {
       state.category = action.payload;
     },
@@ -91,6 +93,14 @@ const slice = createSlice({
         state.loading = false;
         state.error = null;
       })
+      .addCase(toggleCheckboxCategory.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(toggleCheckboxCategory.fulfilled, (state) => {
+        state.loading = false;
+        state.error = null;
+      })
       .addMatcher(isError, (state, action) => {
         state.error = action.payload;
         state.loading = false;
@@ -98,7 +108,6 @@ const slice = createSlice({
   },
 });
 
-export const { incrementCategory, decrementCategory, saveCategory } =
-  slice.actions;
+export const { saveCategory } = slice.actions;
 
 export default slice.reducer;

@@ -1,22 +1,22 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
-import { toggleModalProducts } from "../../store/activeSlice";
+import { toggleModalProducts, triggerRender } from "../../store/activeSlice";
 
 import InputFile from "../../shared/InputFile/InputFile";
 import Button from "../../shared/Button/Button";
 
 import style from "./ModalProducts.module.scss";
-import { addedProduct, incrementProduct } from "../../store/productSlice";
+import { addedProduct } from "../../store/productSlice";
 import Checkbox from "../../shared/Checkbox/Checkbox";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { fetchCategories } from "../../store/categorySlice";
 import clsx from "clsx";
 
 const ModalProducts = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.categories);
-  const theme = useSelector((state) => state.activeTab.theme);
+  const theme = useSelector((state) => state.active.theme);
 
   useEffect(() => {
     dispatch(fetchCategories());
@@ -44,10 +44,8 @@ const ModalProducts = () => {
       dinein: data.dinein,
     };
 
-    console.log(requestData);
-
     dispatch(addedProduct(requestData));
-    dispatch(incrementProduct());
+    dispatch(triggerRender());
     dispatch(toggleModalProducts(false));
     reset();
   };

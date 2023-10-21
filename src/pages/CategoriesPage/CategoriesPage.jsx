@@ -15,15 +15,14 @@ import style from "./CategoriesPage.module.scss";
 
 const CategoriesPage = () => {
   const categories = useSelector((state) => state.categories.categories);
-  const quantity = useSelector((state) => state.categories.quantity);
+  const render = useSelector((state) => state.active.render);
+
   const dispatch = useDispatch();
 
-  const modalCategories = useSelector(
-    (state) => state.activeTab.modalCategories
-  );
+  const modalCategories = useSelector((state) => state.active.modalCategories);
 
   const modalEditCategories = useSelector(
-    (state) => state.activeTab.modalEditCategories
+    (state) => state.active.modalEditCategories
   );
 
   const tableHeaderCategories = useSelector(
@@ -34,7 +33,7 @@ const CategoriesPage = () => {
     setTimeout(() => {
       dispatch(fetchCategories());
     }, 100);
-  }, [quantity]);
+  }, [render]);
 
   return (
     <div className={style.page}>

@@ -4,18 +4,18 @@ import { MdOutlineEditCalendar, MdDeleteForever } from "react-icons/md";
 
 import {
   decreaseCategory,
-  decrementCategory,
   saveCategory,
+  toggleCheckboxCategory,
 } from "../../store/categorySlice";
 import {
   decreaseProduct,
-  decrementProduct,
   saveProduct,
-  toggleCheckbox,
+  toggleCheckboxProduct,
 } from "../../store/productSlice";
 import {
   toggleModalEditCategories,
   toggleModalEditProducts,
+  triggerRender,
 } from "../../store/activeSlice";
 
 import Checkbox from "../../shared/Checkbox/Checkbox";
@@ -27,17 +27,17 @@ import style from "./TableRow.module.scss";
 const TableRow = ({ cell, tableHeader }) => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const theme = useSelector((state) => state.activeTab.theme);
+  const theme = useSelector((state) => state.active.theme);
   const company_id = useSelector((state) => state.auth.company_id);
 
   const deleteCategory = (id) => {
     dispatch(decreaseCategory(id));
-    dispatch(decrementCategory());
+    dispatch(triggerRender());
   };
 
   const deleteProduct = (id) => {
     dispatch(decreaseProduct(id));
-    dispatch(decrementProduct());
+    dispatch(triggerRender());
   };
 
   const handleEditCategory = (name) => {
@@ -51,7 +51,13 @@ const TableRow = ({ cell, tableHeader }) => {
   };
 
   const handleCheckbox = (id, code) => {
-    dispatch(toggleCheckbox({ id, code }));
+    if (location.pathname === `/${company_id}/menu`) {
+      dispatch(toggleCheckboxProduct({ id, code }));
+    }
+    if (location.pathname === `/${company_id}/categories`) {
+      dispatch(toggleCheckboxCategory({ id, code }));
+    }
+    dispatch(triggerRender());
   };
 
   return (

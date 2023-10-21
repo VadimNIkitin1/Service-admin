@@ -1,10 +1,9 @@
-import { useState } from "react";
 import style from "./Checkbox.module.scss";
 import { useSelector } from "react-redux";
 import { clsx } from "clsx";
 
 const Checkbox = (props) => {
-  const theme = useSelector((state) => state.activeTab.theme);
+  const theme = useSelector((state) => state.active.theme);
 
   return (
     <div className={props.className}>

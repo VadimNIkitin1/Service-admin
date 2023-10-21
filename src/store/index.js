@@ -7,7 +7,7 @@ import productsReducer from "./productSlice";
 
 export default configureStore({
   reducer: {
-    activeTab: activeReducer,
+    active: activeReducer,
     tableHeader: tableHeaderReducer,
     categories: categoriesReducer,
     products: productsReducer,

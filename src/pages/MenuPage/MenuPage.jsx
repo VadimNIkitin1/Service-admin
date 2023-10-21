@@ -16,10 +16,10 @@ import style from "./MenuPage.module.scss";
 const MenuPage = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products);
-  const quantity = useSelector((state) => state.products.quantity);
-  const modalProducts = useSelector((state) => state.activeTab.modalProducts);
+  const modalProducts = useSelector((state) => state.active.modalProducts);
+  const render = useSelector((state) => state.active.render);
   const modalEditProducts = useSelector(
-    (state) => state.activeTab.modalEditProducts
+    (state) => state.active.modalEditProducts
   );
   const tableHeaderMenu = useSelector(
     (state) => state.tableHeader.tableHeaderMenu
@@ -29,7 +29,7 @@ const MenuPage = () => {
     setTimeout(() => {
       dispatch(fetchProducts());
     }, 100);
-  }, [quantity]);
+  }, [render]);
 
   return (
     <div className={style.MenuPage}>

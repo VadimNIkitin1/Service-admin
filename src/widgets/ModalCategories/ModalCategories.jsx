@@ -3,21 +3,20 @@ import { useForm } from "react-hook-form";
 import style from "./ModalCategories.module.scss";
 import Button from "../../shared/Button/Button";
 import { useDispatch } from "react-redux";
-import { toggleModalCategories } from "../../store/activeSlice";
-import { addedCategory, incrementCategory } from "../../store/categorySlice";
+import { toggleModalCategories, triggerRender } from "../../store/activeSlice";
+import { addedCategory } from "../../store/categorySlice";
 
 const ModalCategories = () => {
   const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data) => {
     dispatch(addedCategory(data));
-    dispatch(incrementCategory());
+    dispatch(triggerRender());
     dispatch(toggleModalCategories(false));
   };
 

@@ -6,7 +6,7 @@ import InputFile from "../../shared/InputFile/InputFile";
 import Button from "../../shared/Button/Button";
 
 const NotificationForm = () => {
-  const theme = useSelector((state) => state.activeTab.theme);
+  const theme = useSelector((state) => state.active.theme);
 
   const {
     register,

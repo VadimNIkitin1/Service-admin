@@ -4,8 +4,8 @@ import {
   addProduct,
   deleteProduct,
   editProduct,
-  toggleProduct,
-} from "../app/api";
+  toggleCheckbox,
+} from "../api/products";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
@@ -35,10 +35,10 @@ export const decreaseProduct = createAsyncThunk(
   }
 );
 
-export const toggleCheckbox = createAsyncThunk(
-  "products/toggleCheckbox",
+export const toggleCheckboxProduct = createAsyncThunk(
+  "products/toggleCheckboxProduct",
   async (data) => {
-    return await toggleProduct(data);
+    return await toggleCheckbox(data);
   }
 );
 
@@ -54,12 +54,6 @@ const slice = createSlice({
     quantity: 0,
   },
   reducers: {
-    incrementProduct(state) {
-      state.quantity = state.quantity + 1;
-    },
-    decrementProduct(state) {
-      state.quantity = state.quantity - 1;
-    },
     saveProduct(state, action) {
       state.product = action.payload;
     },
@@ -91,11 +85,11 @@ const slice = createSlice({
         state.loading = false;
         state.error = null;
       })
-      .addCase(toggleCheckbox.pending, (state) => {
+      .addCase(toggleCheckboxProduct.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(toggleCheckbox.fulfilled, (state) => {
+      .addCase(toggleCheckboxProduct.fulfilled, (state) => {
         state.loading = false;
         state.error = null;
       })
@@ -106,7 +100,6 @@ const slice = createSlice({
   },
 });
 
-export const { incrementProduct, decrementProduct, saveProduct } =
-  slice.actions;
+export const { saveProduct } = slice.actions;
 
 export default slice.reducer;

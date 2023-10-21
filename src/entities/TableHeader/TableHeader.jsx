@@ -3,7 +3,7 @@ import style from "./TableHeader.module.scss";
 import clsx from "clsx";
 
 const TableHeader = ({ tableHeader }) => {
-  const theme = useSelector((state) => state.activeTab.theme);
+  const theme = useSelector((state) => state.active.theme);
 
   return (
     <div className={clsx(style.tableHeader, theme && style.light)}>

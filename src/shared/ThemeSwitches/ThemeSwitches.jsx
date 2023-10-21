@@ -4,7 +4,7 @@ import style from "./ThemeSwitches.module.scss";
 
 const ThemeSwitches = () => {
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.activeTab.theme);
+  const theme = useSelector((state) => state.active.theme);
 
   return (
     <div

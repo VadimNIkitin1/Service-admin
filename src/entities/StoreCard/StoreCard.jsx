@@ -3,7 +3,7 @@ import style from "./StoreCard.module.scss";
 import { useSelector } from "react-redux";
 
 const StoreCard = (props) => {
-  const theme = useSelector((state) => state.activeTab.theme);
+  const theme = useSelector((state) => state.active.theme);
   return (
     <div className={clsx(style.card, theme && style.light)}>
       <p>{props.name}</p>

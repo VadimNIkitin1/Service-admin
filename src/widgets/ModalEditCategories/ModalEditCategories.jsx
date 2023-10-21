@@ -3,8 +3,11 @@ import { useForm } from "react-hook-form";
 import style from "./ModalEditCategories.module.scss";
 import Button from "../../shared/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleModalEditCategories } from "../../store/activeSlice";
-import { editedCategory, incrementCategory } from "../../store/categorySlice";
+import {
+  toggleModalEditCategories,
+  triggerRender,
+} from "../../store/activeSlice";
+import { editedCategory } from "../../store/categorySlice";
 
 const ModalEditCategories = () => {
   const category = useSelector((state) => state.categories.category);
@@ -23,7 +26,7 @@ const ModalEditCategories = () => {
       id,
     };
     dispatch(editedCategory(requestData));
-    dispatch(incrementCategory());
+    dispatch(triggerRender());
     dispatch(toggleModalEditCategories(false));
   };
 
@@ -49,7 +52,7 @@ const ModalEditCategories = () => {
             )}
           </label>
           <Button view="add" type={"submit"}>
-            Добавить
+            Изменить
           </Button>
           <Button
             view="delete"

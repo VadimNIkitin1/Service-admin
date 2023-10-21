@@ -4,7 +4,7 @@ import clsx from "clsx";
 import style from "./Button.module.scss";
 
 const Button = ({ view, ...props }) => {
-  const theme = useSelector((state) => state.activeTab.theme);
+  const theme = useSelector((state) => state.active.theme);
 
   return (
     <button
