@@ -32,7 +32,7 @@ const CategoriesPage = () => {
   useEffect(() => {
     setTimeout(() => {
       dispatch(fetchCategories());
-    }, 100);
+    }, 200);
   }, [render]);
 
   return (
