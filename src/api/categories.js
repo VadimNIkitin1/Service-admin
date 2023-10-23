@@ -43,7 +43,7 @@ export const deleteCategory = async (id) => {
 export const toggleCheckbox = async (data) => {
   try {
     const res = await axios.put(
-      `product/${data.id}/checkbox/?checkbox=${data.code}`
+      `category/${data.id}/checkbox/?checkbox=${data.code}`
     );
     return res.data;
   } catch (error) {
