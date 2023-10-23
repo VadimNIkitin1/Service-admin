@@ -1,10 +1,15 @@
 @import "../../app/variable.module.scss";
 
 .sidebar {
+  position: sticky;
+  top: 80px;
+  left: 0;
+  bottom: 0;
+  right: 0;
   color: #fff;
   background-color: #212121;
   min-width: 230px;
-  min-height: 100vh;
+  height: 86vh;
   padding: 5px;
   border-right: 1px $grey solid;
 
