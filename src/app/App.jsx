@@ -1,6 +1,8 @@
 import { RouterProvider } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 import router from "./router";
+
 import clsx from "clsx";
 import style from "./App.module.scss";
 

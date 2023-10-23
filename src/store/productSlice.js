@@ -5,6 +5,7 @@ import {
   deleteProduct,
   editProduct,
   toggleCheckbox,
+  getUnits,
 } from "../api/products";
 
 export const fetchProducts = createAsyncThunk(
@@ -42,6 +43,10 @@ export const toggleCheckboxProduct = createAsyncThunk(
   }
 );
 
+export const fetchUnits = createAsyncThunk("products/fetchUnits", async () => {
+  return await getUnits();
+});
+
 const isError = (action) => {
   return action.type.endsWith("rejected");
 };
@@ -52,6 +57,7 @@ const slice = createSlice({
     products: [],
     product: null,
     quantity: 0,
+    units: [],
   },
   reducers: {
     saveProduct(state, action) {
@@ -90,6 +96,15 @@ const slice = createSlice({
         state.error = null;
       })
       .addCase(toggleCheckboxProduct.fulfilled, (state) => {
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(fetchUnits.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchUnits.fulfilled, (state, action) => {
+        state.units = action.payload;
         state.loading = false;
         state.error = null;
       })

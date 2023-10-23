@@ -7,7 +7,7 @@ import InputFile from "../../shared/InputFile/InputFile";
 import Button from "../../shared/Button/Button";
 
 import style from "./ModalProducts.module.scss";
-import { addedProduct } from "../../store/productSlice";
+import { addedProduct, fetchUnits } from "../../store/productSlice";
 import Checkbox from "../../shared/Checkbox/Checkbox";
 import { useEffect } from "react";
 import { fetchCategories } from "../../store/categorySlice";
@@ -16,10 +16,12 @@ import clsx from "clsx";
 const ModalProducts = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.categories);
+  const units = useSelector((state) => state.products.units);
   const theme = useSelector((state) => state.active.theme);
 
   useEffect(() => {
     dispatch(fetchCategories());
+    dispatch(fetchUnits());
   }, []);
 
   const {
@@ -160,8 +162,11 @@ const ModalProducts = () => {
                     name="unit"
                     className={style.modalSelect}
                   >
-                    <option value="1">Шт.</option>
-                    <option value="2">Порц.</option>
+                    {units.map((unit) => (
+                      <option key={unit.id} value={unit.id}>
+                        {unit.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 {errors.weight && (

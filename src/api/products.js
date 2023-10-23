@@ -50,3 +50,12 @@ export const toggleCheckbox = async (data) => {
     console.log(error);
   }
 };
+
+export const getUnits = async () => {
+  try {
+    const res = await axios.get(`product/unit/all/`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
