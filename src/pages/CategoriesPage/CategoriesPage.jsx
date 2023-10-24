@@ -2,8 +2,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 
-import { fetchCategories } from "../../store/categorySlice";
-import { toggleModalCategories } from "../../store/activeSlice";
+import { getCategories } from "../../store/categorySlice";
+import {
+  toggleModalCategories,
+  toggleModalError,
+} from "../../store/activeSlice";
 
 import Button from "../../shared/Button/Button";
 import ModalCategories from "../../widgets/ModalCategories/ModalCategories";
@@ -13,12 +16,12 @@ import ModalForDelete from "../../widgets/ModalForDelete/ModalForDelete";
 import Table from "../../widgets/Table/Table";
 
 import style from "./CategoriesPage.module.scss";
+import ModalError from "../../widgets/ModalError/ModalError";
 
 const CategoriesPage = () => {
-  const categories = useSelector((state) => state.categories.categories);
-  const render = useSelector((state) => state.active.render);
-
   const dispatch = useDispatch();
+  const { categories, error } = useSelector((state) => state.categories);
+  const render = useSelector((state) => state.active.render);
 
   const modalCategories = useSelector((state) => state.active.modalCategories);
 
@@ -33,7 +36,7 @@ const CategoriesPage = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      dispatch(fetchCategories());
+      dispatch(getCategories());
     }, 200);
   }, [render]);
 
@@ -46,6 +49,7 @@ const CategoriesPage = () => {
       {modalCategories && <ModalCategories />}
       {modalEditCategories && <ModalEditCategories />}
       {modalForDelete && <ModalForDelete />}
+      {error && <ModalError />}
     </div>
   );
 };

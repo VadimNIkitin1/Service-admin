@@ -54,6 +54,7 @@ export const {
   triggerRender,
   toggleSidebar,
   toggleModalForDelete,
+  toggleModalError,
 } = slice.actions;
 
 export default slice.reducer;

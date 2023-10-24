@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 
 import { toggleModalProducts } from "../../store/activeSlice";
-import { fetchProducts } from "../../store/productSlice";
+import { getProducts } from "../../store/productSlice";
 
 import Table from "../../widgets/Table/Table";
 import ModalProducts from "../../widgets/ModalProducts/ModalProducts";
@@ -12,6 +12,7 @@ import ModalEditProducts from "../../widgets/ModalEditProducts/ModalEditProducts
 import Button from "../../shared/Button/Button";
 
 import style from "./MenuPage.module.scss";
+import ModalForDelete from "../../widgets/ModalForDelete/ModalForDelete";
 
 const MenuPage = () => {
   const dispatch = useDispatch();
@@ -24,10 +25,11 @@ const MenuPage = () => {
   const tableHeaderMenu = useSelector(
     (state) => state.tableHeader.tableHeaderMenu
   );
+  const modalForDelete = useSelector((state) => state.active.modalForDelete);
 
   useEffect(() => {
     setTimeout(() => {
-      dispatch(fetchProducts());
+      dispatch(getProducts());
     }, 100);
   }, [render]);
 
@@ -44,6 +46,7 @@ const MenuPage = () => {
       <Table data={products} tableHeader={tableHeaderMenu} />
       {modalProducts && <ModalProducts />}
       {modalEditProducts && <ModalEditProducts />}
+      {modalForDelete && <ModalForDelete />}
     </div>
   );
 };

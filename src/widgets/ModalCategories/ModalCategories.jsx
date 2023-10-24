@@ -4,7 +4,7 @@ import style from "./ModalCategories.module.scss";
 import Button from "../../shared/Button/Button";
 import { useDispatch } from "react-redux";
 import { toggleModalCategories, triggerRender } from "../../store/activeSlice";
-import { addedCategory } from "../../store/categorySlice";
+import { addCategory } from "../../store/categorySlice";
 
 const ModalCategories = () => {
   const dispatch = useDispatch();
@@ -15,17 +15,17 @@ const ModalCategories = () => {
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data) => {
-    dispatch(addedCategory(data));
+    dispatch(addCategory(data));
     dispatch(triggerRender());
     dispatch(toggleModalCategories(false));
   };
 
   return (
     <div
-      className={style.ModalCategories}
+      className={style.wrapper}
       onClick={() => dispatch(toggleModalCategories(false))}
     >
-      <div className={style.container} onClick={(e) => e.stopPropagation()}>
+      <div className={style.modal} onClick={(e) => e.stopPropagation()}>
         <h1 className={style.modalTitle}>Добавить категорию</h1>
         <form className={style.modalForm} onSubmit={handleSubmit(onSubmit)}>
           <label className={style.modalLabel}>
@@ -41,15 +41,17 @@ const ModalCategories = () => {
               <p className={style.errorMsg}>{errors.name_rus.message}</p>
             )}
           </label>
-          <Button view="add" type={"submit"}>
-            Добавить
-          </Button>
-          <Button
-            view="delete"
-            onClick={() => dispatch(toggleModalCategories(false))}
-          >
-            Закрыть
-          </Button>
+          <div style={{ display: "flex", columnGap: "20px" }}>
+            <Button view="add" type={"submit"}>
+              Добавить
+            </Button>
+            <Button
+              view="delete"
+              onClick={() => dispatch(toggleModalCategories(false))}
+            >
+              Закрыть
+            </Button>
+          </div>
         </form>
       </div>
     </div>

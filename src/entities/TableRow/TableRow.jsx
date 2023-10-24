@@ -3,15 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineEditCalendar, MdDeleteForever } from "react-icons/md";
 
 import {
-  decreaseCategory,
   saveCategory,
   toggleCheckboxCategory,
 } from "../../store/categorySlice";
-import {
-  decreaseProduct,
-  saveProduct,
-  toggleCheckboxProduct,
-} from "../../store/productSlice";
+import { saveProduct, toggleCheckboxProduct } from "../../store/productSlice";
 import {
   toggleModalEditCategories,
   toggleModalEditProducts,
@@ -31,38 +26,39 @@ const TableRow = ({ cell, tableHeader }) => {
   const theme = useSelector((state) => state.active.theme);
   const company_id = useSelector((state) => state.auth.company_id);
 
-  const deleteCategory = (id) => {
-    dispatch(decreaseCategory(id));
-    dispatch(triggerRender());
+  const handleEdit = (data) => {
+    if (location.pathname === `/${company_id}/menu`) {
+      dispatch(saveProduct(data));
+      dispatch(toggleModalEditProducts(true));
+    }
+
+    if (location.pathname === `/${company_id}/categories`) {
+      dispatch(saveCategory(data));
+      dispatch(toggleModalEditCategories(true));
+    }
   };
 
-  const deleteProduct = (id) => {
-    dispatch(decreaseProduct(id));
-    dispatch(triggerRender());
-  };
+  const handleDelete = (data) => {
+    if (location.pathname === `/${company_id}/menu`) {
+      dispatch(saveProduct(data));
+    }
 
-  const handleEditCategory = (name) => {
-    dispatch(saveCategory(name));
-    dispatch(toggleModalEditCategories(true));
-  };
+    if (location.pathname === `/${company_id}/categories`) {
+      dispatch(saveCategory(data));
+    }
 
-  const handleDeleteCategory = (id) => {
-    dispatch(saveCategory(id));
     dispatch(toggleModalForDelete(true));
-  };
-
-  const handleEditProduct = (name) => {
-    dispatch(saveProduct(name));
-    dispatch(toggleModalEditProducts(true));
   };
 
   const handleCheckbox = (id, code) => {
     if (location.pathname === `/${company_id}/menu`) {
       dispatch(toggleCheckboxProduct({ id, code }));
     }
+
     if (location.pathname === `/${company_id}/categories`) {
       dispatch(toggleCheckboxCategory({ id, code }));
     }
+
     dispatch(triggerRender());
   };
 
@@ -90,20 +86,20 @@ const TableRow = ({ cell, tableHeader }) => {
       })}
       {location.pathname === `/${company_id}/categories` ? (
         <>
-          <Button view="edit" onClick={() => handleEditCategory(cell)}>
+          <Button view="edit" onClick={() => handleEdit(cell)}>
             <MdOutlineEditCalendar />
           </Button>
-          <Button view="delete" onClick={() => handleDeleteCategory(cell.id)}>
+          <Button view="delete" onClick={() => handleDelete(cell)}>
             <MdDeleteForever />
           </Button>
         </>
       ) : null}
       {location.pathname === `/${company_id}/menu` ? (
         <>
-          <Button view="edit" onClick={() => handleEditProduct(cell)}>
+          <Button view="edit" onClick={() => handleEdit(cell)}>
             <MdOutlineEditCalendar />
           </Button>
-          <Button view="delete" onClick={() => deleteProduct(cell.id)}>
+          <Button view="delete" onClick={() => handleDelete(cell)}>
             <MdDeleteForever />
           </Button>
         </>

@@ -7,10 +7,10 @@ import InputFile from "../../shared/InputFile/InputFile";
 import Button from "../../shared/Button/Button";
 
 import style from "./ModalProducts.module.scss";
-import { addedProduct, fetchUnits } from "../../store/productSlice";
+import { addProduct, getUnits } from "../../store/productSlice";
 import Checkbox from "../../shared/Checkbox/Checkbox";
 import { useEffect } from "react";
-import { fetchCategories } from "../../store/categorySlice";
+import { getCategories } from "../../store/categorySlice";
 import clsx from "clsx";
 
 const ModalProducts = () => {
@@ -20,8 +20,8 @@ const ModalProducts = () => {
   const theme = useSelector((state) => state.active.theme);
 
   useEffect(() => {
-    dispatch(fetchCategories());
-    dispatch(fetchUnits());
+    dispatch(getCategories());
+    dispatch(getUnits());
   }, []);
 
   const {
@@ -46,7 +46,7 @@ const ModalProducts = () => {
       dinein: data.dinein,
     };
 
-    dispatch(addedProduct(requestData));
+    dispatch(addProduct(requestData));
     dispatch(triggerRender());
     dispatch(toggleModalProducts(false));
     reset();
@@ -54,10 +54,10 @@ const ModalProducts = () => {
 
   return (
     <div
-      className={style.ModalProducts}
+      className={style.wrapper}
       onClick={() => dispatch(toggleModalProducts(false))}
     >
-      <div className={style.container} onClick={(e) => e.stopPropagation()}>
+      <div className={style.modal} onClick={(e) => e.stopPropagation()}>
         <h1 className={style.modalTitle}>Добавить продукт</h1>
         <form className={style.modalForm} onSubmit={handleSubmit(onSubmit)}>
           <div
@@ -246,15 +246,17 @@ const ModalProducts = () => {
               </label> */}
             </div>
           </div>
-          <Button view="add" type={"submit"}>
-            Добавить
-          </Button>
-          <Button
-            view="delete"
-            onClick={() => dispatch(toggleModalProducts(false))}
-          >
-            Закрыть
-          </Button>
+          <div style={{ display: "flex", columnGap: "20px" }}>
+            <Button view="add" type={"submit"}>
+              Добавить
+            </Button>
+            <Button
+              view="delete"
+              onClick={() => dispatch(toggleModalProducts(false))}
+            >
+              Закрыть
+            </Button>
+          </div>
         </form>
       </div>
     </div>

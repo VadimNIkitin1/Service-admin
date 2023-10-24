@@ -7,7 +7,7 @@ import {
   toggleModalEditCategories,
   triggerRender,
 } from "../../store/activeSlice";
-import { editedCategory } from "../../store/categorySlice";
+import { editCategory } from "../../store/categorySlice";
 
 const ModalEditCategories = () => {
   const category = useSelector((state) => state.categories.category);
@@ -25,17 +25,17 @@ const ModalEditCategories = () => {
       name_rus: data.name_rus,
       id,
     };
-    dispatch(editedCategory(requestData));
+    dispatch(editCategory(requestData));
     dispatch(triggerRender());
     dispatch(toggleModalEditCategories(false));
   };
 
   return (
     <div
-      className={style.ModalCategories}
+      className={style.wrapper}
       onClick={() => dispatch(toggleModalEditCategories(false))}
     >
-      <div className={style.container} onClick={(e) => e.stopPropagation()}>
+      <div className={style.modal} onClick={(e) => e.stopPropagation()}>
         <h1 className={style.modalTitle}>Редактирование</h1>
         <form className={style.modalForm} onSubmit={handleSubmit(onSubmit)}>
           <label className={style.modalLabel}>
@@ -51,15 +51,17 @@ const ModalEditCategories = () => {
               <p className={style.errorMsg}>{errors.name_rus.message}</p>
             )}
           </label>
-          <Button view="add" type={"submit"}>
-            Изменить
-          </Button>
-          <Button
-            view="delete"
-            onClick={() => dispatch(toggleModalEditCategories(false))}
-          >
-            Закрыть
-          </Button>
+          <div style={{ display: "flex", columnGap: "20px" }}>
+            <Button view="add" type={"submit"}>
+              Изменить
+            </Button>
+            <Button
+              view="delete"
+              onClick={() => dispatch(toggleModalEditCategories(false))}
+            >
+              Закрыть
+            </Button>
+          </div>
         </form>
       </div>
     </div>

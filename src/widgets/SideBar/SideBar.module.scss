@@ -1,7 +1,7 @@
 @import "../../app/variable.module.scss";
 
 .sidebar {
-  position: sticky;
+  position: fixed;
   bottom: 140px;
   left: 10px;
   width: 100px;

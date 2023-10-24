@@ -1,44 +1,69 @@
+import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {
-  getCategories,
-  addCategory,
-  deleteCategory,
-  editCategory,
-  toggleCheckbox,
-} from "../api/categories";
 
-export const fetchCategories = createAsyncThunk(
-  "categories/fetchCategories",
-  async () => {
-    return await getCategories();
+axios.defaults.baseURL = "https://swarovskidmitrii.ru/api/v1/";
+axios.defaults.withCredentials = true;
+axios.defaults.headers["Content-Type"] = "application/json";
+
+export const getCategories = createAsyncThunk(
+  "categories/getCategories",
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await axios.get(`category/`);
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
-export const addedCategory = createAsyncThunk(
-  "categories/addedCategory",
-  async (data) => {
-    return await addCategory(data);
+export const addCategory = createAsyncThunk(
+  "categories/addCategory",
+  async (data, { rejectWithValue }) => {
+    try {
+      const res = await axios.post(`category/`, data);
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
-export const editedCategory = createAsyncThunk(
-  "categories/editedCategory",
-  async (data) => {
-    return await editCategory(data);
+export const editCategory = createAsyncThunk(
+  "categories/editCategory",
+  async (data, { rejectWithValue }) => {
+    try {
+      const res = await axios.put(`category/?category_id=${data.id}`, data);
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
-export const decreaseCategory = createAsyncThunk(
-  "categories/decreaseCategory",
-  async (id) => {
-    return await deleteCategory(id);
+export const deleteCategory = createAsyncThunk(
+  "categories/deleteCategory",
+  async (id, { rejectWithValue }) => {
+    try {
+      const res = await axios.delete(`category/?category_id=${id}`);
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
 export const toggleCheckboxCategory = createAsyncThunk(
   "products/toggleCheckboxCategory",
-  async (data) => {
-    return await toggleCheckbox(data);
+  async (data, { rejectWithValue }) => {
+    try {
+      const res = await axios.put(
+        `category/${data.id}/checkbox/?checkbox=${data.code}`
+      );
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
@@ -51,7 +76,6 @@ const slice = createSlice({
   initialState: {
     categories: [],
     category: null,
-    quantity: 0,
   },
   reducers: {
     saveCategory(state, action) {
@@ -60,36 +84,36 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCategories.pending, (state) => {
+      .addCase(getCategories.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchCategories.fulfilled, (state, action) => {
+      .addCase(getCategories.fulfilled, (state, action) => {
         state.categories = action.payload;
         state.loading = false;
         state.error = null;
       })
-      .addCase(addedCategory.pending, (state) => {
+      .addCase(addCategory.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(addedCategory.fulfilled, (state) => {
+      .addCase(addCategory.fulfilled, (state) => {
         state.loading = false;
         state.error = null;
       })
-      .addCase(editedCategory.pending, (state) => {
+      .addCase(editCategory.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(editedCategory.fulfilled, (state) => {
+      .addCase(editCategory.fulfilled, (state) => {
         state.loading = false;
         state.error = null;
       })
-      .addCase(decreaseCategory.pending, (state) => {
+      .addCase(deleteCategory.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(decreaseCategory.fulfilled, (state) => {
+      .addCase(deleteCategory.fulfilled, (state) => {
         state.loading = false;
         state.error = null;
       })

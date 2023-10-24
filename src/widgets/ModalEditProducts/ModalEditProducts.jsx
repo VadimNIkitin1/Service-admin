@@ -6,8 +6,8 @@ import {
   toggleModalEditProducts,
   triggerRender,
 } from "../../store/activeSlice";
-import { fetchCategories } from "../../store/categorySlice";
-import { editedProduct } from "../../store/productSlice";
+import { getCategories } from "../../store/categorySlice";
+import { editProduct } from "../../store/productSlice";
 
 import InputFile from "../../shared/InputFile/InputFile";
 import Button from "../../shared/Button/Button";
@@ -34,7 +34,7 @@ const ModalEditProducts = () => {
   } = product;
 
   useEffect(() => {
-    dispatch(fetchCategories());
+    dispatch(getCategories());
   }, []);
 
   const {
@@ -68,17 +68,17 @@ const ModalEditProducts = () => {
       dinein: data.dinein,
     };
 
-    dispatch(editedProduct(requestData));
-    dispatch(triggerRender());
+    dispatch(editProduct(requestData));
     dispatch(toggleModalEditProducts(false));
+    dispatch(triggerRender());
   };
 
   return (
     <div
-      className={style.ModalProducts}
+      className={style.wrapper}
       onClick={() => dispatch(toggleModalEditProducts(false))}
     >
-      <div className={style.container} onClick={(e) => e.stopPropagation()}>
+      <div className={style.modal} onClick={(e) => e.stopPropagation()}>
         <h1 className={style.modalTitle}>Редактирование</h1>
         <form className={style.modalForm} onSubmit={handleSubmit(onSubmit)}>
           <div
@@ -198,16 +198,17 @@ const ModalEditProducts = () => {
 
             {/* <InputFile {...register("image")} /> */}
           </div>
-
-          <Button view="add" type={"submit"}>
-            Изменить
-          </Button>
-          <Button
-            view="delete"
-            onClick={() => dispatch(toggleModalEditProducts(false))}
-          >
-            Закрыть
-          </Button>
+          <div style={{ display: "flex", columnGap: "20px" }}>
+            <Button view="add" type={"submit"}>
+              Изменить
+            </Button>
+            <Button
+              view="delete"
+              onClick={() => dispatch(toggleModalEditProducts(false))}
+            >
+              Закрыть
+            </Button>
+          </div>
         </form>
       </div>
     </div>
