@@ -37,8 +37,12 @@ const ModalProducts = () => {
       name_rus: data.name_rus,
       description_rus: data.description_rus,
       price: Number(data.price),
-      unit_id: Number(data.unit),
       wt: Number(data.wt),
+      kilocalories: Number(data.calories),
+      proteins: Number(data.proteins),
+      fats: Number(data.fats),
+      carbohydrates: Number(data.carbohydrates),
+      unit_id: Number(data.unit),
       availability: data.availability,
       popular: data.popular,
       delivery: data.delivery,
@@ -121,13 +125,13 @@ const ModalProducts = () => {
                   placeholder="Белки"
                   type="number"
                   className={style.modalInputSmall}
-                  {...register("protein", { required: true })}
+                  {...register("proteins", { required: true })}
                 />
                 <input
                   placeholder="Жиры"
                   type="number"
                   className={style.modalInputSmall}
-                  {...register("fat", { required: true })}
+                  {...register("fats", { required: true })}
                 />
                 <input
                   placeholder="Углеводы"
