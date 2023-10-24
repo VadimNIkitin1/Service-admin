@@ -15,6 +15,7 @@ import {
 import {
   toggleModalEditCategories,
   toggleModalEditProducts,
+  toggleModalForDelete,
   triggerRender,
 } from "../../store/activeSlice";
 
@@ -43,6 +44,11 @@ const TableRow = ({ cell, tableHeader }) => {
   const handleEditCategory = (name) => {
     dispatch(saveCategory(name));
     dispatch(toggleModalEditCategories(true));
+  };
+
+  const handleDeleteCategory = (id) => {
+    dispatch(saveCategory(id));
+    dispatch(toggleModalForDelete(true));
   };
 
   const handleEditProduct = (name) => {
@@ -87,7 +93,7 @@ const TableRow = ({ cell, tableHeader }) => {
           <Button view="edit" onClick={() => handleEditCategory(cell)}>
             <MdOutlineEditCalendar />
           </Button>
-          <Button view="delete" onClick={() => deleteCategory(cell.id)}>
+          <Button view="delete" onClick={() => handleDeleteCategory(cell.id)}>
             <MdDeleteForever />
           </Button>
         </>

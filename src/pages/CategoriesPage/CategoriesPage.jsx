@@ -8,6 +8,7 @@ import { toggleModalCategories } from "../../store/activeSlice";
 import Button from "../../shared/Button/Button";
 import ModalCategories from "../../widgets/ModalCategories/ModalCategories";
 import ModalEditCategories from "../../widgets/ModalEditCategories/ModalEditCategories";
+import ModalForDelete from "../../widgets/ModalForDelete/ModalForDelete";
 
 import Table from "../../widgets/Table/Table";
 
@@ -24,6 +25,7 @@ const CategoriesPage = () => {
   const modalEditCategories = useSelector(
     (state) => state.active.modalEditCategories
   );
+  const modalForDelete = useSelector((state) => state.active.modalForDelete);
 
   const tableHeaderCategories = useSelector(
     (state) => state.tableHeader.tableHeaderCategories
@@ -43,6 +45,7 @@ const CategoriesPage = () => {
       <Table data={categories} tableHeader={tableHeaderCategories} />
       {modalCategories && <ModalCategories />}
       {modalEditCategories && <ModalEditCategories />}
+      {modalForDelete && <ModalForDelete />}
     </div>
   );
 };

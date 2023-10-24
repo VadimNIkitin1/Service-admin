@@ -32,6 +32,7 @@ export const editCategory = async (data) => {
 };
 
 export const deleteCategory = async (id) => {
+  console.log(id);
   try {
     const res = await axios.delete(`category/?category_id=${id}`);
     return res.data;
