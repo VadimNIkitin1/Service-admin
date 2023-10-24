@@ -37,7 +37,7 @@ const ModalProducts = () => {
       name_rus: data.name_rus,
       description_rus: data.description_rus,
       price: Number(data.price),
-      unit: Number(data.unit),
+      unit_id: Number(data.unit),
       wt: Number(data.wt),
       availability: data.availability,
       popular: data.popular,

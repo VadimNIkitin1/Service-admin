@@ -10,21 +10,19 @@ const SideBarItem = ({ item }) => {
   const theme = useSelector((state) => state.active.theme);
   const company_id = useSelector((state) => state.auth.company_id);
 
-  const { name, link, icon } = item;
+  const { link, icon } = item;
 
   return (
     <Link
       className={clsx(
-        activeTab === `/${company_id}${link}`
-          ? style.sidebarItemActive
-          : style.sidebarItem,
+        style.item,
+        activeTab === `/${company_id}${link}` && style.active,
         theme && style.light
       )}
       to={`/${company_id}${link}`}
       onClick={() => dispatch(toggleTabs(`/${company_id}${link}`))}
     >
       {icon}
-      <p>{name}</p>
     </Link>
   );
 };

@@ -1,38 +1,35 @@
 @import "../../app/variable.module.scss";
 
-.sidebarItem {
-  padding: 15px;
+.item {
+  margin: 10px;
+  padding: 10px;
   display: flex;
   column-gap: 10px;
-  margin: 10px;
-  font-size: 20px;
+  font-size: 30px;
   color: #fff;
+  border-radius: 10px;
+  justify-content: center;
+  &.active {
+    background-color: $violet;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    &.light {
+      background-color: $blue;
+    }
+  }
+  &.active:hover {
+    background-color: $violet;
+  }
   &.light {
     color: #000;
   }
 }
 
-.sidebarItem:hover {
+.item:hover {
   cursor: pointer;
   background-color: $grey;
-  border-radius: 15px;
+  border-radius: 10px;
   &.light {
     background-color: $lightgrey;
-  }
-}
-
-.sidebarItemActive {
-  padding: 15px;
-  display: flex;
-  column-gap: 10px;
-  margin: 10px;
-  font-size: 20px;
-  color: #fff;
-  border-radius: 15px;
-  background-color: $violet;
-  transition: all 0.3s ease-in-out;
-
-  &.light {
-    background-color: $blue;
   }
 }

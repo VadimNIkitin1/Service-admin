@@ -6,13 +6,19 @@ import Footer from "../Footer/Footer";
 
 const Layout = () => {
   return (
-    <div className={style.HomePage}>
-      <NavBar />
+    <div className={style.page}>
+      <div className={style.navbar}>
+        <NavBar />
+      </div>
       <div className={style.content}>
-        <SideBar />
         <Outlet />
       </div>
-      <Footer />
+      <div className={style.sidebar}>
+        <SideBar />
+      </div>
+      <div className={style.footer}>
+        <Footer />
+      </div>
     </div>
   );
 };
