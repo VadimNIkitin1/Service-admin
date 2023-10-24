@@ -10,6 +10,7 @@ const slice = createSlice({
     modalEditCategories: false,
     modalEditProducts: false,
     render: false,
+    sidebar: false,
   },
   reducers: {
     toggleTabs(state, action) {
@@ -33,6 +34,9 @@ const slice = createSlice({
     triggerRender(state) {
       state.render = !state.render;
     },
+    toggleSidebar(state, action) {
+      state.sidebar = action.payload;
+    },
   },
 });
 
@@ -44,6 +48,7 @@ export const {
   toggleModalEditCategories,
   toggleModalEditProducts,
   triggerRender,
+  toggleSidebar,
 } = slice.actions;
 
 export default slice.reducer;

@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+import BurgerButton from "../../shared/BurgerButton/BurgerButton";
 import SideBarItem from "../SideBarItem/SideBarItem";
 import {
   MdOutlineMenuBook,
@@ -9,6 +11,7 @@ import {
   MdStore,
   MdList,
 } from "react-icons/md";
+import { toggleSidebar } from "../../store/activeSlice";
 
 const SIDEBAR_LIST = [
   { link: "/shops", icon: <MdStore /> },
@@ -37,11 +40,13 @@ const SIDEBAR_LIST = [
 ];
 
 const SideBarList = () => {
+  const dispatch = useDispatch();
   return (
     <div>
       {SIDEBAR_LIST.map((el, idx) => (
         <SideBarItem key={idx} item={el} />
       ))}
+      {<BurgerButton onClick={() => dispatch(toggleSidebar(false))} />}
     </div>
   );
 };
