@@ -8,6 +8,7 @@ const slice = createSlice({
     modalEditCategories: false,
     modalEditProducts: false,
     modalForDelete: false,
+    modalError: false,
   },
   reducers: {
     toggleModalProducts(state, action) {
@@ -24,6 +25,9 @@ const slice = createSlice({
     },
     toggleModalForDelete(state, action) {
       state.modalForDelete = action.payload;
+    },
+    toggleModalError(state, action) {
+      state.modalError = action.payload;
     },
   },
 });

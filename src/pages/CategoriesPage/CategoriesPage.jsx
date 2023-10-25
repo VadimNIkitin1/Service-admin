@@ -3,21 +3,29 @@ import { useDispatch, useSelector } from "react-redux";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 
 import { getCategories } from "../../store/categorySlice";
-import { toggleModalCategories } from "../../store/modalsSlice";
+import {
+  toggleModalCategories,
+  toggleModalError,
+} from "../../store/modalsSlice";
 
-import Button from "../../shared/Button/Button";
 import ModalCategories from "../../widgets/ModalCategories/ModalCategories";
 import ModalEditCategories from "../../widgets/ModalEditCategories/ModalEditCategories";
 import ModalForDelete from "../../widgets/ModalForDelete/ModalForDelete";
-
+import ModalError from "../../widgets/ModalError/ModalError";
 import Table from "../../widgets/Table/Table";
 
+import Button from "../../shared/Button/Button";
+
 import style from "./CategoriesPage.module.scss";
-import ModalError from "../../widgets/ModalError/ModalError";
+import Loader from "../../shared/Loader/Loader";
 
 const CategoriesPage = () => {
+  console.log("Render category page");
   const dispatch = useDispatch();
-  const { categories, error } = useSelector((state) => state.categories);
+  const { categories, error, loading } = useSelector(
+    (state) => state.categories
+  );
+
   const render = useSelector((state) => state.active.render);
 
   const modalCategories = useSelector((state) => state.modals.modalCategories);
@@ -26,6 +34,7 @@ const CategoriesPage = () => {
     (state) => state.modals.modalEditCategories
   );
   const modalForDelete = useSelector((state) => state.modals.modalForDelete);
+  const modalError = useSelector((state) => state.modals.modalError);
 
   const tableHeaderCategories = useSelector(
     (state) => state.tableHeader.tableHeaderCategories
@@ -46,7 +55,7 @@ const CategoriesPage = () => {
       {modalCategories && <ModalCategories />}
       {modalEditCategories && <ModalEditCategories />}
       {modalForDelete && <ModalForDelete />}
-      {error && <ModalError />}
+      {modalError && <ModalError />}
     </div>
   );
 };
