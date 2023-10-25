@@ -41,9 +41,7 @@ const CategoriesPage = () => {
   );
 
   useEffect(() => {
-    setTimeout(() => {
-      dispatch(getCategories());
-    }, 200);
+    dispatch(getCategories());
   }, [render]);
 
   return (
@@ -55,7 +53,6 @@ const CategoriesPage = () => {
       {modalCategories && <ModalCategories />}
       {modalEditCategories && <ModalEditCategories />}
       {modalForDelete && <ModalForDelete />}
-      {modalError && <ModalError />}
     </div>
   );
 };
