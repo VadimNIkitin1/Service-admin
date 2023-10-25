@@ -1,7 +1,11 @@
 @import "../../app/variable.module.scss";
 
-.Footer {
-  height: 30px;
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  height: 40px;
   min-width: 100%;
   background-color: #212121;
 }
@@ -15,4 +19,13 @@
 .link {
   padding: 0 10px;
   color: $blue;
+}
+
+.subscription {
+  color: #fff;
+  padding: 5px;
+  font-size: 12px;
+  border: 2px solid $green;
+  border-radius: 5px;
+  background-color: rgba($color: #3ea20cab, $alpha: 0.5);
 }

@@ -3,10 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 
 import { getCategories } from "../../store/categorySlice";
-import {
-  toggleModalCategories,
-  toggleModalError,
-} from "../../store/activeSlice";
+import { toggleModalCategories } from "../../store/modalsSlice";
 
 import Button from "../../shared/Button/Button";
 import ModalCategories from "../../widgets/ModalCategories/ModalCategories";
@@ -23,12 +20,12 @@ const CategoriesPage = () => {
   const { categories, error } = useSelector((state) => state.categories);
   const render = useSelector((state) => state.active.render);
 
-  const modalCategories = useSelector((state) => state.active.modalCategories);
+  const modalCategories = useSelector((state) => state.modals.modalCategories);
 
   const modalEditCategories = useSelector(
-    (state) => state.active.modalEditCategories
+    (state) => state.modals.modalEditCategories
   );
-  const modalForDelete = useSelector((state) => state.active.modalForDelete);
+  const modalForDelete = useSelector((state) => state.modals.modalForDelete);
 
   const tableHeaderCategories = useSelector(
     (state) => state.tableHeader.tableHeaderCategories

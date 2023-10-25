@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
-import { toggleModalProducts, triggerRender } from "../../store/activeSlice";
+import { toggleModalProducts } from "../../store/modalsSlice";
+import { triggerRender } from "../../store/activeSlice";
 
 import InputFile from "../../shared/InputFile/InputFile";
 import Button from "../../shared/Button/Button";

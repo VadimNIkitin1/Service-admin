@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import { toggleModalForDelete, triggerRender } from "../../store/activeSlice";
+import { triggerRender } from "../../store/activeSlice";
+import { toggleModalForDelete } from "../../store/modalsSlice";
 import { deleteCategory } from "../../store/categorySlice";
 
 import Button from "../../shared/Button/Button";

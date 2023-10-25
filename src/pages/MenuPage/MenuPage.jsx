@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 
-import { toggleModalProducts } from "../../store/activeSlice";
+import { toggleModalProducts } from "../../store/modalsSlice";
 import { getProducts } from "../../store/productSlice";
 
 import Table from "../../widgets/Table/Table";
@@ -17,15 +17,15 @@ import ModalForDelete from "../../widgets/ModalForDelete/ModalForDelete";
 const MenuPage = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products);
-  const modalProducts = useSelector((state) => state.active.modalProducts);
+  const modalProducts = useSelector((state) => state.modals.modalProducts);
   const render = useSelector((state) => state.active.render);
   const modalEditProducts = useSelector(
-    (state) => state.active.modalEditProducts
+    (state) => state.modals.modalEditProducts
   );
   const tableHeaderMenu = useSelector(
     (state) => state.tableHeader.tableHeaderMenu
   );
-  const modalForDelete = useSelector((state) => state.active.modalForDelete);
+  const modalForDelete = useSelector((state) => state.modals.modalForDelete);
 
   useEffect(() => {
     setTimeout(() => {

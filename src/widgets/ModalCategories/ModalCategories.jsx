@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import style from "./ModalCategories.module.scss";
 import Button from "../../shared/Button/Button";
 import { useDispatch } from "react-redux";
-import { toggleModalCategories, triggerRender } from "../../store/activeSlice";
+import { triggerRender } from "../../store/activeSlice";
+import { toggleModalCategories } from "../../store/modalsSlice";
 import { addCategory } from "../../store/categorySlice";
 
 const ModalCategories = () => {

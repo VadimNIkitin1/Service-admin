@@ -1,7 +1,7 @@
 import style from "./ModalError.module.scss";
 import Button from "../../shared/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleModalError } from "../../store/activeSlice";
+import { toggleModalError } from "../../store/modalsSlice";
 
 const ModalError = () => {
   const dispatch = useDispatch();

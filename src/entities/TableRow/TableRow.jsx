@@ -11,8 +11,8 @@ import {
   toggleModalEditCategories,
   toggleModalEditProducts,
   toggleModalForDelete,
-  triggerRender,
-} from "../../store/activeSlice";
+} from "../../store/modalsSlice";
+import { triggerRender } from "../../store/activeSlice";
 
 import Checkbox from "../../shared/Checkbox/Checkbox";
 import Button from "../../shared/Button/Button";

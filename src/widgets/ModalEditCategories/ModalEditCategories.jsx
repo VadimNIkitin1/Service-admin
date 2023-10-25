@@ -3,10 +3,8 @@ import { useForm } from "react-hook-form";
 import style from "./ModalEditCategories.module.scss";
 import Button from "../../shared/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  toggleModalEditCategories,
-  triggerRender,
-} from "../../store/activeSlice";
+import { triggerRender } from "../../store/activeSlice";
+import { toggleModalEditCategories } from "../../store/modalsSlice";
 import { editCategory } from "../../store/categorySlice";
 
 const ModalEditCategories = () => {

@@ -2,10 +2,8 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  toggleModalEditProducts,
-  triggerRender,
-} from "../../store/activeSlice";
+import { toggleModalEditProducts } from "../../store/modalsSlice";
+import { triggerRender } from "../../store/activeSlice";
 import { getCategories } from "../../store/categorySlice";
 import { editProduct } from "../../store/productSlice";
 
