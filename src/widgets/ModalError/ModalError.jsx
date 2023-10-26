@@ -6,6 +6,7 @@ import { toggleModalError } from "../../store/modalsSlice";
 const ModalError = () => {
   const dispatch = useDispatch();
   const { error } = useSelector((state) => state.categories);
+  console.log(error);
 
   return (
     <div

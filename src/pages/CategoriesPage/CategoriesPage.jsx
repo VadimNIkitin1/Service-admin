@@ -20,7 +20,6 @@ import style from "./CategoriesPage.module.scss";
 import Loader from "../../shared/Loader/Loader";
 
 const CategoriesPage = () => {
-  console.log("Render category page");
   const dispatch = useDispatch();
   const { categories, error, loading } = useSelector(
     (state) => state.categories
@@ -41,7 +40,9 @@ const CategoriesPage = () => {
   );
 
   useEffect(() => {
-    dispatch(getCategories());
+    setTimeout(() => {
+      dispatch(getCategories());
+    }, 200);
   }, [render]);
 
   return (
